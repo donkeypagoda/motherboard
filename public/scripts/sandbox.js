@@ -1,7 +1,6 @@
 const mainAudio = document.querySelector('audio');
-let level = document.querySelector(".vol");
+let level = document.querySelector("input");
 
-console.log("dogballs");
 
 if (navigator.mediaDevices) {
   console.log("yah buddy getUserMedia is down with the plan");
@@ -16,8 +15,10 @@ if (navigator.mediaDevices) {
     source.connect(loPassFilter);
     loPassFilter.connect(audioCtx.destination);
     level.oninput = () => {
+      console.log("dogballs");
+      console.log(level.value);
       loPassFilter.gain.value = level.value;
-    }
+    };
 
 
 
