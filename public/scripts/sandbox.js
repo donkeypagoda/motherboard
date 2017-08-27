@@ -1,6 +1,6 @@
 const mainAudio = document.querySelector('audio');
-let level = document.querySelector("input");
-
+let level = document.querySelector('input');
+console.log(level.value);
 
 if (navigator.mediaDevices) {
   console.log("yah buddy getUserMedia is down with the plan");
