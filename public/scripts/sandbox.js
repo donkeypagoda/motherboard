@@ -1,5 +1,6 @@
 const mainAudio = document.querySelector('audio');
-let time = document.querySelector('input');
+let time = document.querySelector('#delay');
+let loCut = document.querySelector('#loCut');
 
 if (navigator.mediaDevices) {
   console.log("yah buddy getUserMedia is down with the plan");
@@ -10,15 +11,19 @@ if (navigator.mediaDevices) {
     let loPassFilter = audioCtx.createBiquadFilter();
     let delay = audioCtx.createDelay(100);
     delay.delayTime.value = 1;
-    loPassFilter.type = "lowpass";
+    loPassFilter.type = "highshelf";
     loPassFilter.frequency.value = 1000;
-    // loPassFilter.gain.value = level.value;
+    loPassFilter.gain.value = loCut.value;
     source.connect(loPassFilter);
     loPassFilter.connect(delay);
     delay.connect(audioCtx.destination);
     time.oninput = () => {
       console.log(time.value);
       delay.delayTime.value = time.value;
+    };
+    loCut.oninput = () => {
+      console.log(loCut.value);
+      loPassFilter.gain.value = loCut.value;
     };
 
 
