@@ -1,0 +1,9 @@
+html, body {
+  background-color: blue;
+}
+
+.unit {
+  border-color: red;
+  border-width: 2px;
+  border-style: solid;
+}

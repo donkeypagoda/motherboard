@@ -1,6 +1,7 @@
 const mainAudio = document.querySelector('audio');
 let time = document.querySelector('#delay');
 let loCut = document.querySelector('#loCut');
+let loCutFreq = document.querySelector('#loCutFreq')
 
 if (navigator.mediaDevices) {
   console.log("yah buddy getUserMedia is down with the plan");
@@ -24,6 +25,10 @@ if (navigator.mediaDevices) {
     loCut.oninput = () => {
       console.log(loCut.value);
       loPassFilter.gain.value = loCut.value;
+    };
+    loCutFreq.oninput = () => {
+      console.log(loCutFreq.value);
+      loPassFilter.frequency.value = loCutFreq.value;
     };
 
 
