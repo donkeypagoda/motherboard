@@ -1,8 +1,9 @@
 const mainAudio = document.querySelector('audio');
 let time = document.querySelector('#delayTime');
 let feedbackSlider = document.querySelector("#delayFeedback");
-let loCut = document.querySelector('#loCut');
-let loCutFreq = document.querySelector('#loCutFreq')
+let delayFilter = document.querySelector('#delayFilter');
+let loCutFreq = document.querySelector("#loCutFreq")
+
 
 if (navigator.mediaDevices) {
   console.log("yah buddy getUserMedia is down with the plan");
@@ -10,22 +11,22 @@ if (navigator.mediaDevices) {
   .then ((stream) => {
     let audioCtx = new AudioContext();
     let source = audioCtx.createMediaStreamSource(stream);
-    let loPassFilter = audioCtx.createBiquadFilter();
+    let feedbackFilter = audioCtx.createBiquadFilter();
     let delay = audioCtx.createDelay(100);
     let feedback = audioCtx.createGain();
-    
+
     delay.delayTime.value = 1;
-    loPassFilter.type = "highshelf";
-    loPassFilter.frequency.value = 1000;
-    loPassFilter.gain.value = loCut.value;
+
+    feedbackFilter.frequency.value = 1000;
+
     feedback.gain.value = 0.0;
 
     // routing:
-    source.connect(loPassFilter);
-    loPassFilter.connect(delay);
+    source.connect(delay);
     delay.connect(audioCtx.destination);
     delay.connect(feedback);
-    feedback.connect(delay);
+    feedback.connect(feedbackFilter);
+    feedbackFilter.connect(audioCtx.destination);
 
 
 
@@ -37,13 +38,10 @@ if (navigator.mediaDevices) {
       console.log(feedbackSlider.value);
       feedback.gain.value = feedbackSlider.value;
     };
-    loCut.oninput = () => {
-      console.log(loCut.value);
-      loPassFilter.gain.value = loCut.value;
-    };
+
     loCutFreq.oninput = () => {
       console.log(loCutFreq.value);
-      loPassFilter.frequency.value = loCutFreq.value;
+      feedbackFilter.frequency.value = loCutFreq.value;
     };
 
 
