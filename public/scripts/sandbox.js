@@ -11,13 +11,14 @@ if (navigator.mediaDevices) {
   .then ((stream) => {
     let audioCtx = new AudioContext();
     let source = audioCtx.createMediaStreamSource(stream);
+    let delay = audioCtx.createDelay();
     let feedbackFilter = audioCtx.createBiquadFilter();
-    let delay = audioCtx.createDelay(100);
     let feedback = audioCtx.createGain();
 
-    delay.delayTime.value = 1;
+    // delay.delayTime.value = 1;
 
     feedbackFilter.frequency.value = 1000;
+    feedbackFilter.gain.value = -10;
 
     feedback.gain.value = 0.0;
 
