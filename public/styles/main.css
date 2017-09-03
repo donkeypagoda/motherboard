@@ -1,5 +1,7 @@
 html, body {
-  background-color: blue;
+  margin: 0;
+  height: 100%;
+  background: linear-gradient(#6599ed, #27f6fd)
 }
 
 .unit {

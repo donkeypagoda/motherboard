@@ -6,10 +6,13 @@
     <script defer src="./scripts/sandbox.js"></script>
     <link rel="stylesheet" href="./styles/main.css">
   </head>
-  <body>
+  <body class="gradient">
     <div id="delayDiv" class="unit">
-      <label>Delay
-        <input id="delay" type="range" min="0.25" max="7.0">
+      <label>Delay Time
+        <input id="delayTime" type="range" min="0.25" max="7.0">
+      </label>
+      <label>Delay Feedback
+        <input id="delayFeedback" type="range" min="0.01" max="0.99" step="0.01">
       </label>
     </div>
     <div id="InputFilter" class="unit">
@@ -20,6 +23,19 @@
         <input id="loCutFreq" type="range" min="500" max="5000">
       </label>
     </div>
-
+    <div id="fourBandEq" class="unit">FourBandEq
+      <label>Low
+        <input id="low" type="range" min="-25" max="25">
+      </label>
+      <label>LoMid
+        <input id="loMid" type="range" min="500" max="5000">
+      </label>
+      <label>HiMid
+        <input id="hiMid" type="range" min="500" max="5000">
+      </label>
+      <label>High
+        <input id="high" type="range" min="500" max="5000">
+      </label>
+    </div>
   </body>
 </html>
