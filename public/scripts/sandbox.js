@@ -1,8 +1,7 @@
-const mainAudio = document.querySelector('audio');
 let time = document.querySelector('#delayTime');
 let feedbackSlider = document.querySelector("#delayFeedback");
 let delayFilter = document.querySelector('#delayFilter');
-let loCutFreq = document.querySelector("#loCutFreq")
+let loCutFreq = document.querySelector("#loCutFreq");
 
 
 if (navigator.mediaDevices) {
@@ -28,8 +27,6 @@ if (navigator.mediaDevices) {
     delay.connect(feedback);
     feedback.connect(feedbackFilter);
     feedbackFilter.connect(audioCtx.destination);
-
-
 
     time.oninput = () => {
       console.log(time.value);
