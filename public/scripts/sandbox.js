@@ -40,7 +40,7 @@ if (navigator.mediaDevices) {
       console.log(loCutFreq.value);
       feedbackFilter.frequency.value = loCutFreq.value;
     };
-
+ 
   })
   .catch(function(err) {
         console.log('The following gUM error occured: ' + err);
