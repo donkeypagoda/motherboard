@@ -1,7 +1,7 @@
 let time = document.querySelector('#delayTime');
 let feedbackSlider = document.querySelector("#delayFeedback");
-let delayFilter = document.querySelector('#delayFilter');
-let loCutFreq = document.querySelector("#loCutFreq");
+// let delayFilter = document.querySelector('#delayFilter');
+// let loCutFreq = document.querySelector("#loCutFreq");
 
 if (navigator.mediaDevices.getUserMedia) {
   console.log("yah buddy getUserMedia is down with the plan");
@@ -10,13 +10,13 @@ if (navigator.mediaDevices.getUserMedia) {
     let audioCtx = new AudioContext();
     let source = audioCtx.createMediaStreamSource(stream);
     let delay = audioCtx.createDelay();
-    let feedbackFilter = audioCtx.createBiquadFilter();
+    // let feedbackFilter = audioCtx.createBiquadFilter();
     let feedback = audioCtx.createGain();
 
     // delay.delayTime.value = 1;
 
-    feedbackFilter.frequency.value = 1000;
-    feedbackFilter.gain.value = -10;
+    // feedbackFilter.frequency.value = 1000;
+    // feedbackFilter.gain.value = -10;
 
     feedback.gain.value = 0.0;
 
@@ -24,11 +24,11 @@ if (navigator.mediaDevices.getUserMedia) {
     source.connect(delay);
     delay.connect(audioCtx.destination);
     delay.connect(feedback);
-    feedback.connect(feedbackFilter);
-    feedbackFilter.connect(audioCtx.destination);
+    feedback.connect(delay);
+    // feedbackFilter.connect(audioCtx.destination);
 
     time.oninput = () => {
-      console.log(time.value);
+      // console.log(time.value);
       delay.delayTime.value = time.value;
     };
     feedbackSlider.oninput = () => {
@@ -36,10 +36,10 @@ if (navigator.mediaDevices.getUserMedia) {
       feedback.gain.value = feedbackSlider.value;
     };
 
-    loCutFreq.oninput = () => {
-      console.log(loCutFreq.value);
-      feedbackFilter.frequency.value = loCutFreq.value;
-    };
+    // loCutFreq.oninput = () => {
+    //   console.log(loCutFreq.value);
+    //   feedbackFilter.frequency.value = loCutFreq.value;
+    // };
 
   })
   .catch(function(err) {
