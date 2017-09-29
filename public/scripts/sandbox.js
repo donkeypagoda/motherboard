@@ -3,7 +3,7 @@ let feedbackSlider = document.querySelector("#delayFeedback");
 let delayFilter = document.querySelector('#delayFilter');
 let loCutFreq = document.querySelector("#loCutFreq");
 
-if (navigator.mediaDevices) {
+if (navigator.mediaDevices.getUserMedia) {
   console.log("yah buddy getUserMedia is down with the plan");
   navigator.mediaDevices.getUserMedia({audio: true})
   .then ((stream) => {
@@ -40,7 +40,7 @@ if (navigator.mediaDevices) {
       console.log(loCutFreq.value);
       feedbackFilter.frequency.value = loCutFreq.value;
     };
- 
+
   })
   .catch(function(err) {
         console.log('The following gUM error occured: ' + err);
