@@ -8,3 +8,4 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookie());
 app.use(morgan('dev'))
+app.use(express.static(path.join("public")));
