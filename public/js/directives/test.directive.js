@@ -131,7 +131,7 @@
 
       return {
         link: link,
-        templateUrl: "test.template.html"
+        templateUrl: "templates/test.template.html"
       };
 
     })
