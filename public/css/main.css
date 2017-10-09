@@ -11,3 +11,7 @@ html, body {
   border-width: 2px;
   border-style: solid;
 }
+
+.footer{
+  background-image: url("../media/motherboard.png");
+}
