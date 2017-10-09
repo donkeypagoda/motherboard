@@ -12,6 +12,6 @@ html, body {
   border-style: solid;
 }
 
-.footer{
-  background-image: url("../media/motherboard.png");
+header {
+  background-image: url("../media/darkwood.jpg");
 }
