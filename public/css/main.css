@@ -1,7 +1,9 @@
 html, body {
   margin: 0;
   height: 100%;
-  background: linear-gradient(#6599ed, #27f6fd)
+  /*background: linear-gradient(#6599ed, #27f6fd)*/
+  background-image: url("../media/wide-loop-regal-carbon.jpg");
+  background-repeat: repeat
 }
 
 .unit {
