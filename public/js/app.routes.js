@@ -13,7 +13,7 @@
       .state({
         name: 'test',
         url: '/',
-        directive: 'test'
+        component: 'test'
       })
 
   }
