@@ -1,27 +1,18 @@
 (function() {
   'use strict';
   angular.module('app')
-    .service('delayService', service)
+    .service('audioCtx', service)
 
     // service.$inject = ["$http", "$stateParams"]
 
     function service(){
-      class AsyncUnits{
-        constructor(audioCtx, unitArray){
-          this.units = unitArray;
-          this.length = unitArray.length;
-          this.count = 0;
-          this.invoke = () =>{
-            if (this.count < this.length){
-              this.units[this.count++](this.invoke.bind(this))
-            }
-          }
-        }
-      }
+      this.audioCtx;
 
       this.buildSignalPath = function(unitArray){
-        const audioCtx = new AudioContext();
+        delete this.audioCtx;
+        this.audioCtx = new AudioContext();
         const newChain = new AsyncUnits(audioCtx, unitArray);
+        newChain.invoke();
 
         if (navigator.mediaDevices.getUserMedia) {
           console.log("yah buddy getUserMedia is down with the plan");
@@ -36,7 +27,7 @@
           })
 
 
-          newChain.invoke();
+
 
 
 
@@ -54,5 +45,19 @@
 
 
 
+    }
+
+
+    class AsyncUnits{
+      constructor(audioCtx, unitArray){
+        this.units = unitArray;
+        this.length = unitArray.length;
+        this.count = 0;
+      }
+      invoke(){
+        if (this.count < this.length){
+          this.units[this.count++](this.invoke.bind(this))
+        }
+      }
     }
 }());

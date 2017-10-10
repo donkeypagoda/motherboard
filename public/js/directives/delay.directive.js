@@ -3,7 +3,7 @@
   angular.module('app')
     .directive('delay', function(){
       const controller = function (){
-        // this.makeAudioAndDelay = function(){
+        // this.makeAudioAndDelay = function(audioCtx, next){
         //   const audioCtx = new AudioContext();
         //   if (navigator.mediaDevices.getUserMedia) {
         //     console.log("yah buddy getUserMedia is down with the plan");

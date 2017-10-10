@@ -2,7 +2,25 @@
   'use strict';
   angular.module('app')
     .directive('disto', function(){
-      const link = function (){
+
+      const link = $(function() {
+        $("#distoSat")
+          .dial({
+            fgColor:"#222222",
+            bgColor:"#EEEEEE",
+            thickness: 0.3,
+            change : function (value) {
+                console.log("change : ", value);
+                disto1.curve = makeDistortionCurve(parseFloat(distoSat.value));
+            }
+
+            })
+          .css({display:'inline',padding:'0px 10px'});
+
+
+      }());
+
+      const controller = function (){
 
         function makeAudioAndDisto(){
           const audioCtx = new AudioContext();
@@ -35,6 +53,7 @@
 }
 
       return {
+        controller: controller,
         link: link,
         templateUrl: "templates/disto.template.html"
       };
