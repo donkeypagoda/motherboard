@@ -4,7 +4,7 @@
     .directive('disto', function(){
       const link = function (){
 
-        function makeAudioAndDelay(){
+        function makeAudioAndDisto(){
           const audioCtx = new AudioContext();
           if (navigator.mediaDevices.getUserMedia) {
             console.log("yah buddy getUserMedia is down with the plan");
@@ -31,7 +31,7 @@
               console.log('getUserMedia not supported round deez partz');
           }
         }
-        makeAudioAndDelay();
+        makeAudioAndDisto();
 }
 
       return {
