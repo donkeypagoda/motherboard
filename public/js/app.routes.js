@@ -13,7 +13,7 @@
       .state({
         name: 'test',
         url: '/',
-        component: 'test'
+        component: 'board'
       })
 
   }

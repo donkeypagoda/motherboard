@@ -15,3 +15,7 @@ html, body {
 header {
   background-image: url("../media/darkwood.jpg");
 }
+
+#delayDiv {
+  background-color: #0a48ad;
+}
