@@ -2,7 +2,7 @@
   'use strict';
   angular.module('app')
     .directive('delay', function(){
-      const link = function (){
+      const link = function (scope, element, attrs){
 
         function makeAudioAndDelay(){
           const audioCtx = new AudioContext();
@@ -35,6 +35,7 @@
 }
 
       return {
+        // require: "board",
         link: link,
         templateUrl: "templates/delay.template.html"
       };
