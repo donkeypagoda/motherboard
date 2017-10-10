@@ -10,11 +10,11 @@
               console.log(delay);
             })
         }
-        // $scope.content = []
-        // this.addDelay = function(){
-        //   $scope.content.push("<delay></delay>")
-        // }
-        // this.addDelay();
+        $scope.content = []
+        this.addDelay = function(){
+          $scope.content.push("<delay></delay>")
+        }
+        this.addDelay();
         // delay.makeAudioAndDelay();
 
       }
@@ -22,8 +22,8 @@
 
       const link = function ($scope, element) {
 
-        // element.html($scope.content.join(""));
-        // $compile(element.contents())($scope);
+        element.html($scope.content.join(""));
+        $compile(element.contents())($scope);
       }
       link.$inject = ["$scope"]
 
