@@ -7,13 +7,12 @@
         this.addDelay = function(){
           $scope.content.push("<delay></delay>")
         }
-        this.addDelay()
-        this.addDelay()
+        this.addDelay();
       }
-      controller.$inject = ["$scope"]
+      controller.$inject = ["$scope"];
 
       const link = function ($scope, element) {
-        // $scope.content = ["<delay></delay>"]
+
         element.html($scope.content.join(""));
         $compile(element.contents())($scope);
       }

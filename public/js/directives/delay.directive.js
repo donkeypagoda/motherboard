@@ -2,9 +2,8 @@
   'use strict';
   angular.module('app')
     .directive('delay', function(){
-      const link = function (scope, element, attrs){
-
-        function makeAudioAndDelay(){
+      const controller = function (){
+        this.makeAudioAndDelay(){
           const audioCtx = new AudioContext();
           if (navigator.mediaDevices.getUserMedia) {
             console.log("yah buddy getUserMedia is down with the plan");
@@ -31,12 +30,11 @@
               console.log('getUserMedia not supported round deez partz');
           }
         }
-        makeAudioAndDelay();
-}
+    }
 
       return {
-        // require: "board",
-        link: link,
+        controller: controller,
+        // link: link,
         templateUrl: "templates/delay.template.html"
       };
 

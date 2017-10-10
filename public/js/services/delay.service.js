@@ -7,7 +7,7 @@
 
     function service(){
 
-      this.addDelay = function(){
+      this.addDelay = function(input){
         return
       }
 
