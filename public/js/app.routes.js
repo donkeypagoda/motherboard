@@ -11,7 +11,7 @@
 
     $stateProvider
       .state({
-        name: 'test',
+        name: 'board',
         url: '/',
         component: 'board'
       })
