@@ -19,3 +19,16 @@ header {
 #delayDiv {
   background-color: #0a48ad;
 }
+#distoDiv {
+  background-color: #ad090c;
+}
+
+#pannerDiv {
+  background-color: yellow;
+}
+#reverbDiv {
+  background-color: green;
+}
+#chorusDiv {
+  background-color: orange;
+}
