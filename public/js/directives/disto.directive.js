@@ -19,7 +19,7 @@
 
 
       }());
-
+      controller.$inject = ['audioCtxService']
       const controller = function (){
 
         function makeAudioAndDisto(){
