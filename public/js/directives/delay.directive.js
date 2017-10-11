@@ -10,10 +10,10 @@
 
     })
 
-    controller.$inject = ['audioCtx']
-    function controller(audioCtx){
+    controller.$inject = ['audioCtxService']
+    function controller(audioCtxService){
       const vm = this;
-      audioCtx.add(vm);
+      audioCtxService.add(vm);
 
       vm.plug = function(audioCtx, source){
         vm.delayInputBypassStatus = false;

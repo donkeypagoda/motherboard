@@ -5,10 +5,7 @@
       const controller = function($scope, delayService) {
         const vm = this
         vm.$onInit = function (){
-          // delayService.makeAudioAndDelay()
-          //   .then((delay) => {
-          //     console.log(delay);
-          //   })
+
         }
 
         $scope.content = []
@@ -18,11 +15,6 @@
         }
         this.addUnit();
 
-        // delay.makeAudioAndDelay();
-        // this.addDisto = function (){
-        //   $scope.content.push("<disto></disto>")
-        // }
-        // this.addDisto();
       }
       controller.$inject = ["$scope"];
 

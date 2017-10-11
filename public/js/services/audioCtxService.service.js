@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   angular.module('app')
-    .service('audioCtx', service)
+    .service('audioCtxService', service)
 
     // service.$inject = ["$http", "$stateParams"]
 
@@ -9,7 +9,6 @@
       const vm  = this;
       vm.audioCtx = new AudioContext();
       vm.units = [];
-
 
       vm.add = function(unit){
         vm.units.push(unit);
@@ -33,7 +32,6 @@
             let source = vm.audioCtx.createMediaStreamSource(stream);
             console.log("what");
             for(const unit of unitArray){
-
               unit.plug(vm.audioCtx, source);
               source = unit.output;
             }
