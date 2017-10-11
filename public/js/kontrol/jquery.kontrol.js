@@ -14,7 +14,7 @@
  * Thanks to vor, eskimoblood, spiffistan, FabrizioC
  */
 (function($) {
-  console.log("fuck off");
+  console.log("kontrol is loading");
     /**
      * Kontrol library
      */

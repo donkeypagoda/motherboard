@@ -11,9 +11,9 @@
     })
 
     controller.$inject = ['audioCtx']
-    function controller(audioCtxService){
+    function controller(audioCtx){
       const vm = this;
-      audioCtxService.add(vm);
+      audioCtx.add(vm);
 
       vm.plug = function(audioCtx, source){
         vm.delayInputBypassStatus = false;
@@ -55,7 +55,7 @@
       controller.delayBypass = root.find("#delayBypass");
       controller.delayInputBypass = root.find("#delayInputBypass");
       controller.feedbackBypass = root.find("#feedbackBypass");
-      console.log(controller.time);
+      // console.log(controller.time);
 
 
 
@@ -64,14 +64,14 @@
         console.log(controller.time.val());
         controller.delay.delayTime.value = parseFloat(controller.time.val());
       });
-      controller.feedbackSlider.oninput = () => {
-        controller.feedback.gain.value = controller.feedbackSlider.value;
-      };
-      controller.delayWetDryMix.oninput = () => {
-        controller.delayMixMute.gain.value = parseFloat(controller.delayWetDryMix.value);
-        controller.delayPassThru.gain.value = 0.1 / parseFloat(controller.delayWetDryMix.value);
-      };
-      controller.delayBypass.onchange = () => {
+      controller.feedbackSlider.change(() => {
+        controller.feedback.gain.value = parseFloat(controller.feedbackSlider.val());
+      });
+      controller.delayWetDryMix.change(() => {
+        controller.delayMixMute.gain.value = parseFloat(controller.delayWetDryMix.val());
+        controller.delayPassThru.gain.value = 0.1 / parseFloat(controller.delayWetDryMix.val());
+      });
+      controller.delayBypass.change(() => {
         controller.bypass = !controller.bypass;
         if(controller.bypass){
           controller.input.connect(controller.output);
@@ -92,9 +92,9 @@
           controller.delayMute.gain.value = 1;
           controller.feedbackMute.gain.value = 1;
         }
-      };
+      });
 
-      controller.feedbackBypass.onchange = () => {
+      controller.feedbackBypass.change(() => {
         controller.feedbackBypassStatus = !controller.feedbackBypassStatus
         if (controller.feedbackBypassStatus) {
           controller.feedbackMute.gain.value = 0;
@@ -102,9 +102,9 @@
         else{
           controller.feedbackMute.gain.value = 1;
         }
-      };
+      });
 
-      controller.delayInputBypass.onchange = () => {
+      controller.delayInputBypass.change(() => {
         controller.delayInputBypassStatus = !controller.delayInputBypassStatus
         if (controller.delayInputBypassStatus) {
           controller.delayMute.gain.value = 0;
@@ -112,6 +112,6 @@
         else {
           controller.delayMute.gain.value = 1;
         }
-      }
+      });
     }
 })();

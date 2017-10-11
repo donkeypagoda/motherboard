@@ -7,40 +7,39 @@
 
     function service(){
       const vm  = this;
-      this.audioCtx = new AudioContext();
-      this.units = [];
+      vm.audioCtx = new AudioContext();
+      vm.units = [];
 
 
-      this.add = function(unit){
-        this.units.push(unit);
-
-        this.buildSignalPath(this.units);
+      vm.add = function(unit){
+        vm.units.push(unit);
+        vm.buildSignalPath(vm.units);
       }
 
-      this.remove = function(unit){
-        this.units = this.units.filter(ele => ele !== unit);
-        this.buildSignalPath(this.units);
+      vm.remove = function(unit){
+        vm.units = vm.units.filter(ele => ele !== unit);
+        vm.buildSignalPath(vm.units);
       }
 
 
 
-      this.buildSignalPath = function(unitArray){
-        navigator.mediaDevices.getUserMedia({audio: { latency: 0.01,
-                                                      echoCancellation: false,
-                                                      mozNoiseSuppression: false,
-                                                      mozAutoGainControl: false
-                                            }})
-        .then ((stream) => {
-          let source = vm.audioCtx.createMediaStreamSource(stream);
+      vm.buildSignalPath = function(unitArray){
+          navigator.mediaDevices.getUserMedia({audio: { latency: 0.01,
+            echoCancellation: false,
+            mozNoiseSuppression: false,
+            mozAutoGainControl: false
+          }})
+          .then ((stream) => {
+            let source = vm.audioCtx.createMediaStreamSource(stream);
+            console.log("what");
+            for(const unit of unitArray){
 
-          for(const unit of this.units){
+              unit.plug(vm.audioCtx, source);
+              source = unit.output;
+            }
 
-            unit.plug(vm.audioCtx, source);
-            source = unit.output;
-          }
-
-          this.units[this.units.length -1].output.connect(vm.audioCtx.destination);
-        })
+            unitArray[unitArray.length -1].output.connect(vm.audioCtx.destination);
+          })
       }
     }
 }());
