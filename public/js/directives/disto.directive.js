@@ -1,4 +1,4 @@
-(function() {
+controllercontroller(function() {
   'use strict';
   angular.module('app')
     .directive('disto', function(){
@@ -29,8 +29,8 @@
             }
             return curve;
           }
-          vm.disto1.curve = this.makeDistortionCurve(400);
-          this.disto1.oversample = '4x';
+          vm.disto1.curve = vm.makeDistortionCurve(400);
+          vm.disto1.oversample = '4x';
 
           vm.distoHPF = audioCtx.createBiquadFilter();
           vm.distoHPF.type = "highpass"
@@ -42,11 +42,6 @@
           vm.output;
           vm.bypass = false;
 
-          this.distoSat = document.querySelector('#distoSat')
-          this.distoOverdrive = document.querySelector("#distoOverdrive")
-          this.distoHPFfreq = document.querySelector("#distoHPFfreq")
-          this.distoLPFfreq = document.querySelector("#distoLPFfreq")
-          this.distoBypass = document.querySelector("#distoBypass")
 
 
           //  ROUTING XXXXXXXXXXXXXXXXXXXXXXXXX
@@ -56,49 +51,53 @@
           vm.distoHPF.connect(vm.distoLPF)
           vm.output = vm.distoLPF
 
-          this.distoSat.oninput = () => {
-            // console.log(parseFloat(distoSat.value));
-            this.disto1.curve = this.makeDistortionCurve(parseFloat(this.distoSat.value));
-          };
-          this.distoOverdrive.oninput = () => {
-            // console.log(parseFloat(distoOverdrive.value));
-            this.distoOver.gain.value = parseFloat(this.distoOverdrive.value);
-          };
-
-          this.distoHPFfreq.oninput = () => {
-            // console.log(parseFloat(distoHPFfreq.value));
-            this.distoHPF.frequency.value = parseFloat(this.distoHPFfreq.value);
-          }
-          this.distoLPFfreq.oninput = () => {
-            // console.log(parseFloat(distoLPFfreq.value));
-            this.distoLPF.frequency.value = parseFloat(this.distoLPFfreq.value);
-          }
-          this.distoBypass.oninput = () => {
-            this.bypass = !this.bypass;
-            if (this.bypass) {
-              this.output = source
-              vm.distoOver.gain.value = 0.0;
-            }
-            else {
-              vm.distoOver.gain.value = parseFloat(this.distoOverdrive.value)
-              source.connect(this.distoOver)
-              vm.distoOver.connect(vm.disto1)
-              vm.disto1.connect(vm.distoHPF)
-              vm.distoHPF.connect(vm.distoLPF)
-              vm.output = vm.distoLPF
-
-            }
-          }
-
-
-
 
 
 
         }
       }
 
-      function link(){
+      function link(scope, iElement, iAttrs, controller, transcludeFn){
+        const root = $(iElement)
+        controller.distoSat = root.find('#distoSat')
+        controller.distoOverdrive = root.find("#distoOverdrive")
+        controller.distoHPFfreq = root.find("#distoHPFfreq")
+        controller.distoLPFfreq = root.find("#distoLPFfreq")
+        controller.distoBypass = root.find("#distoBypass")
+
+        controller.distoSat.oninput = () => {
+          // console.log(parseFloat(distoSat.value));
+          controller.disto1.curve = controller.makeDistortionCurve(parseFloat(controller.distoSat.value));
+        };
+        controller.distoOverdrive.oninput = () => {
+          // console.log(parseFloat(distoOverdrive.value));
+          controller.distoOver.gain.value = parseFloat(controller.distoOverdrive.value);
+        };
+
+        controller.distoHPFfreq.oninput = () => {
+          // console.log(parseFloat(distoHPFfreq.value));
+          controller.distoHPF.frequency.value = parseFloat(controller.distoHPFfreq.value);
+        }
+        controller.distoLPFfreq.oninput = () => {
+          // console.log(parseFloat(distoLPFfreq.value));
+          controller.distoLPF.frequency.value = parseFloat(controller.distoLPFfreq.value);
+        }
+        controller.distoBypass.oninput = () => {
+          controller.bypass = !controller.bypass;
+          if (controller.bypass) {
+            controller.output = source
+            controller.distoOver.gain.value = 0.0;
+          }
+          else {
+            controller.distoOver.gain.value = parseFloat(controller.distoOverdrive.value)
+            source.connect(controller.distoOver)
+            controller.distoOver.connect(controller.disto1)
+            controller.disto1.connect(controller.distoHPF)
+            controller.distoHPF.connect(controller.distoLPF)
+            controller.output = controller.distoLPF
+
+          }
+        }
 
         // $(function() {
         //   $("#distoSat")
