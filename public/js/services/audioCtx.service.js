@@ -7,7 +7,7 @@
 
     function service(){
 
-      this.makeAudioAndDelay = function(){
+      this.makeAudiochain = function(){
         const audioCtx = new AudioContext();
         if (navigator.mediaDevices.getUserMedia) {
           console.log("yah buddy getUserMedia is down with the plan");
