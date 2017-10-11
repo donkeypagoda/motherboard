@@ -1,4 +1,4 @@
-controllercontroller(function() {
+(function() {
   'use strict';
   angular.module('app')
     .directive('disto', function(){
@@ -7,13 +7,15 @@ controllercontroller(function() {
         link: link,
         templateUrl: "templates/disto.template.html"
       };
+
+    })
+    
       controller.$inject = ['audioCtxService']
       function controller(audioCtxService){
         const vm = this;
         audioCtxService.add(vm);
 
         vm.plug = function(audioCtx, source){
-
           vm.distoOver = audioCtx.createGain();
           vm.disto1 = audioCtx.createWaveShaper();
           vm.makeDistortionCurve = (amount) => {
@@ -35,7 +37,7 @@ controllercontroller(function() {
           vm.distoHPF = audioCtx.createBiquadFilter();
           vm.distoHPF.type = "highpass"
           vm.distoHPF.frequency.value = 60;
-          vm.distoLPF = .audioCtx.createBiquadFilter();
+          vm.distoLPF = audioCtx.createBiquadFilter();
           vm.distoLPF.type = "lowpass"
           vm.distoLPF.frequency.value = 15000;
 
@@ -119,5 +121,4 @@ controllercontroller(function() {
 
 
 
-    })
 })();

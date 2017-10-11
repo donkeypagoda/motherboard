@@ -2,7 +2,7 @@
   'use strict';
   angular.module('app')
     .directive('board', function($compile) {
-      const controller = function($scope, delayService) {
+      const controller = function($scope) {
         const vm = this
         vm.$onInit = function (){
 
@@ -11,7 +11,7 @@
         $scope.content = []
         this.addUnit = function(unit){
 
-          $scope.content.push("<delay></delay><delay></delay>") // ("<delay config="pedal data from database"></delay><delay></delay>")
+          $scope.content.push("<disto></disto><delay></delay>") // ("<delay config="pedal data from database"></delay><delay></delay>")
         }
         this.addUnit();
 
