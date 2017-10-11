@@ -5,23 +5,18 @@
       const controller = function($scope, delayService) {
         const vm = this
         vm.$onInit = function (){
-          delayService.makeAudioAndDelay()
-            .then((delay) => {
-              console.log(delay);
-            })
+
         }
+
         $scope.content = []
-        this.addDelay = function(){
-          $scope.content.push("<delay></delay>")
+        this.addUnit = function(unit){
+
+          $scope.content.push("<delay></delay><delay></delay>")
         }
-        this.addDelay();
-        // delay.makeAudioAndDelay();
-        // this.addDisto = function (){
-        //   $scope.content.push("<disto></disto>")
-        // }
-        // this.addDisto();
+        this.addUnit();
+
       }
-      controller.$inject = ["$scope", "delayService"];
+      controller.$inject = ["$scope"];
 
       const link = function ($scope, element) {
 
