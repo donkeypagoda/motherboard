@@ -49,7 +49,7 @@
         vm.pannerGain.connect(vm.panner)
         vm.panner.connect(vm.merger)
         vm.passThruGain.connect(vm.merger)
-        this.output = vm.merger
+        vm.output = vm.merger
       }
 
 
