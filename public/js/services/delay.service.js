@@ -18,13 +18,8 @@
                                               }})
           .then ((stream) => {
             const source = audioCtx.createMediaStreamSource(stream);
-            return source;
-          })
-          .then((source) => {
-            return new Delay(audioCtx, source)
-          })
-          .then((delay) => {
-            return delay.output.connect(audioCtx.destination)
+            const delay = new Delay(audioCtx, source);
+            return delay.output.connect(audioCtx.destination);
           })
           .catch(function(err) {
                 console.log('The following gUM error occured: ' + err);

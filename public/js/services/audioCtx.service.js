@@ -6,58 +6,41 @@
     // service.$inject = ["$http", "$stateParams"]
 
     function service(){
-      this.audioCtx;
+      const vm  = this;
+      this.audioCtx = new AudioContext();
+      this.units = [];
+
+
+      this.add = function(unit){
+        this.units.push(unit);
+
+        this.buildSignalPath(this.units);
+      }
+
+      this.remove = function(unit){
+        this.units = this.units.filter(ele => ele !== unit);
+        this.buildSignalPath(this.units);
+      }
+
+
 
       this.buildSignalPath = function(unitArray){
-        delete this.audioCtx;
-        this.audioCtx = new AudioContext();
-        const newChain = new AsyncUnits(audioCtx, unitArray);
-        newChain.invoke();
+        navigator.mediaDevices.getUserMedia({audio: { latency: 0.01,
+                                                      echoCancellation: false,
+                                                      mozNoiseSuppression: false,
+                                                      mozAutoGainControl: false
+                                            }})
+        .then ((stream) => {
+          let source = vm.audioCtx.createMediaStreamSource(stream);
 
-        if (navigator.mediaDevices.getUserMedia) {
-          console.log("yah buddy getUserMedia is down with the plan");
-          return navigator.mediaDevices.getUserMedia({audio: { latency: 0.01,
-                                                        echoCancellation: false,
-                                                        mozNoiseSuppression: false,
-                                                        mozAutoGainControl: false
-                                              }})
-          .then ((stream) => {
-            const source = audioCtx.createMediaStreamSource(stream);
-            return source;
-          })
+          for(const unit of this.units){
 
+            unit.plug(vm.audioCtx, source);
+            source = unit.output;
+          }
 
-
-
-
-
-          .then((source) => {
-            return source.output.connect(audioCtx.destination)
-          })
-          .catch(function(err) {
-                console.log('The following gUM error occured: ' + err);
-            });
-        }
-        else {
-            console.log('getUserMedia not supported round deez partz');
-        }
-      }
-
-
-
-    }
-
-
-    class AsyncUnits{
-      constructor(audioCtx, unitArray){
-        this.units = unitArray;
-        this.length = unitArray.length;
-        this.count = 0;
-      }
-      invoke(){
-        if (this.count < this.length){
-          this.units[this.count++](this.invoke.bind(this))
-        }
+          this.units[this.units.length -1].output.connect(vm.audioCtx.destination);
+        })
       }
     }
 }());
