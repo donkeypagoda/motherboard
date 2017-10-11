@@ -74,23 +74,14 @@
       controller.delayBypass.change(() => {
         controller.bypass = !controller.bypass;
         if(controller.bypass){
-          controller.input.connect(controller.output);
           controller.delayMute.gain.value = 0;
           controller.feedbackMute.gain.value = 0;
+          controller.delayPassThru.gain.value = 1;
         }
         else{
-          controller.input.connect(controller.delayMute);
-          controller.input.connect(controller.delayPassThru);
-          controller.delayMute.connect(controller.delay);
-          controller.delay.connect(controller.feedbackMute);
-          controller.feedbackMute.connect(controller.feedback);
-          controller.feedback.connect(controller.delay);
-          controller.delay.connect(controller.delayMixMute);
-          controller.delayMixMute.connect(controller.merger)
-          controller.delayPassThru.connect(controller.merger);
-          controller.output = controller.merger;
           controller.delayMute.gain.value = 1;
           controller.feedbackMute.gain.value = 1;
+          controller.delayPassThru.gain.value = 0.1 / parseFloat(controller.delayWetDryMix.val());
         }
       });
 
