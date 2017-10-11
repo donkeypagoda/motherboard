@@ -98,13 +98,7 @@
           controller.delayGain.gain.value = 1.2;
           controller.cleanGain.gain.value = 0.7;
           controller.makeUpGain.value.gain = 1.2;
-          // controller.input.connect(controller.delayGain);
-          // controller.delayGain.connect(controller.delayNode);
-          // this.delayNode.connect(this.merger)
-          // this.input.connect(this.cleanGain);
-          // this.cleanGain.connect(this.merger);
-          // this.merger.connect(this.makeUpGain);
-          // this.output = this.makeUpGain;
+
         }
       }
 

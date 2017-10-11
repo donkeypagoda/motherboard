@@ -10,8 +10,8 @@
 
         $scope.content = []
         this.addUnit = function(unit){
-
-          $scope.content.push("<disto></disto><chorus></chorus><delay></delay>") // ("<delay config="pedal data from database"></delay><delay></delay>")
+          // <disto></disto><chorus></chorus><delay></delay>
+          $scope.content.push("<chorus></chorus>") // ("<delay config="pedal data from database"></delay><delay></delay>")
         }
         this.addUnit();
 
