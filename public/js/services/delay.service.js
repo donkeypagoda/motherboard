@@ -18,12 +18,9 @@
                                               }})
           .then ((stream) => {
             const source = audioCtx.createMediaStreamSource(stream);
-            return source;
-          })
-          .then((source) => {
-            return new Delay(audioCtx, source)
-          })
-          .then((delay) => {
+            // loop
+            new Delay(audioCtx, source)
+            // connect output
             return delay.output.connect(audioCtx.destination)
           })
           .catch(function(err) {

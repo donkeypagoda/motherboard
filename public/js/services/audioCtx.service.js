@@ -6,14 +6,9 @@
     // service.$inject = ["$http", "$stateParams"]
 
     function service(){
-      this.audioCtx;
 
-      this.buildSignalPath = function(unitArray){
-        delete this.audioCtx;
-        this.audioCtx = new AudioContext();
-        const newChain = new AsyncUnits(audioCtx, unitArray);
-        newChain.invoke();
-
+      this.makeAudioAndDelay = function(){
+        const audioCtx = new AudioContext();
         if (navigator.mediaDevices.getUserMedia) {
           console.log("yah buddy getUserMedia is down with the plan");
           return navigator.mediaDevices.getUserMedia({audio: { latency: 0.01,
@@ -23,16 +18,10 @@
                                               }})
           .then ((stream) => {
             const source = audioCtx.createMediaStreamSource(stream);
-            return source;
-          })
-
-
-
-
-
-
-          .then((source) => {
-            return source.output.connect(audioCtx.destination)
+            // loop
+            new Delay(audioCtx, source)
+            // connect output
+            return delay.output.connect(audioCtx.destination)
           })
           .catch(function(err) {
                 console.log('The following gUM error occured: ' + err);
@@ -45,19 +34,5 @@
 
 
 
-    }
-
-
-    class AsyncUnits{
-      constructor(audioCtx, unitArray){
-        this.units = unitArray;
-        this.length = unitArray.length;
-        this.count = 0;
-      }
-      invoke(){
-        if (this.count < this.length){
-          this.units[this.count++](this.invoke.bind(this))
-        }
-      }
     }
 }());
