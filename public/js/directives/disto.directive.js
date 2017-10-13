@@ -106,15 +106,15 @@
 
         // $(function() {
           // $("#distoSat")
-          controller.distoSat
-          .knob({
+          controller.distoSat.knob({
+            value: 150,
             fgColor:"#222222",
             bgColor:"#EEEEEE",
-            thickness: 0.1,
+            thickness: 0.3,
             angleOffset: -130,
             angleArc: 260,
-            label: "Sat",
             min: 50,
+            step: 5,
             max: 1000,
             width: 100,
             height: 100,
