@@ -22,7 +22,6 @@
         vm.pannerTable = Array.from(new Array(50), (x, i) => i/25 + vm.pannerWidth[0]);
         vm.pannerTableRev = Array.from(new Array(51), (x, i) => vm.pannerWidth[1] - i/25);
         vm.pannerFullTable = vm.pannerTable.concat(vm.pannerTableRev)
-        vm.pannerGo = true;
         vm.output;
         vm.bypass = false;
         vm.counter = 0;
@@ -37,7 +36,7 @@
           }
         }
 
-        if (vm.pannerGo) {
+        if (!vm.bypass) {
           vm.intervalID = setInterval(vm.panInc, vm.pannerSpeed)
         }
 
