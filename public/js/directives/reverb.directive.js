@@ -78,8 +78,11 @@
           controller.getImpulseResponse.open("GET", controller.reverbChoice[controller.reverbSelect.val()], true);
           controller.getImpulseResponse.responseType = "arraybuffer";
           controller.getImpulseResponse.onload = () => {
-            controller.audioCtx.decodeAudioData(controller.getImpulseResponse.response,
-              (buffer) => { controller.reverb.buffer = buffer });
+            console.log("tacos")
+            return controller.audioCtx.decodeAudioData(controller.getImpulseResponse.response,
+              (buffer) => {
+                console.log("are good")
+                return controller.reverb.buffer = buffer });
           }
         controller.getImpulseResponse.send();
       })
