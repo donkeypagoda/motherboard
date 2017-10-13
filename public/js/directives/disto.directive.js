@@ -66,7 +66,7 @@
 
       function link(scope, iElement, iAttrs, controller, transcludeFn){
         const root = $(iElement)
-        // controller.distoSat = root.find('#distoSat')
+        controller.distoSat = root.find('#distoSat')
         controller.distoOverdrive = root.find("#distoOverdrive")
         controller.distoHPFfreq = root.find("#distoHPFfreq")
         controller.distoLPFfreq = root.find("#distoLPFfreq")
@@ -104,13 +104,20 @@
           }
         })
 
-        $(function() {
-          $("#distoSat")
-          .dial({
+        // $(function() {
+          // $("#distoSat")
+          controller.distoSat
+          .knob({
             fgColor:"#222222",
             bgColor:"#EEEEEE",
             thickness: 0.1,
-            // angleOffset: 60,
+            angleOffset: -130,
+            angleArc: 260,
+            label: "Sat",
+            min: 50,
+            max: 1000,
+            width: 100,
+            height: 100,
             change : function (value) {
               console.log("change : ", value);
               controller.disto1.curve = makeDistortionCurve(parseFloat(distoSat.val()));
@@ -120,7 +127,7 @@
           .css({display:'inline',padding:'0px 10px'});
 
 
-        }());
+        // }());
       }
 
 
