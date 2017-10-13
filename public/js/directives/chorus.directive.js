@@ -66,26 +66,26 @@
 
     function link(scope, iElement, iAttrs, controller, transcludeFn){
       const root = $(iElement);
-      controller.depthControl = document.querySelector("#chorusDepth");
-      controller.speedControl = document.querySelector("#chorusSpeed");
-      controller.bypassControl = document.querySelector("#chorusBypass");
+      controller.depthControl = root.find("#chorusDepth");
+      controller.speedControl = root.find("#chorusSpeed");
+      controller.bypassControl = root.find("#chorusBypass");
 
-      controller.depthControl.oninput = () => {
-        controller.depth = parseInt(controller.depthControl.value);
+      controller.depthControl.change(() => {
+        controller.depth = parseInt(controller.depthControl.val());
         clearInterval(controller.intervalID);
         if (controller.chorusGo){
           controller.intervalID = setInterval(controller.cycle, controller.speed);
         }
-      };
-      controller.speedControl.oninput = () => {
-        controller.speed = parseInt(controller.speedControl.value);
+      });
+      controller.speedControl.change(() => {
+        controller.speed = parseInt(controller.speedControl.val());
         clearInterval(controller.intervalID);
         if (controller.chorusGo){
           controller.intervalID = setInterval(controller.cycle, controller.speed);
         }
-      }
+      });
 
-      controller.bypassControl.onchange = () => {
+      controller.bypassControl.change(() => {
         controller.bypass = !controller.bypass;
         if (controller.bypass) {
           clearInterval(controller.intervalID);
@@ -100,7 +100,7 @@
           controller.makeUpGain.value.gain = 1.2;
 
         }
-      }
+      });
 
 
     }

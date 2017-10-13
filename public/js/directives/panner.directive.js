@@ -61,8 +61,6 @@
       controller.pannerStartStop = root.find("#pannerStartStop");
       controller.pannerBypass = root.find("#pannerBypass");
 
-
-
       controller.pannerSpeedInput.change(() => {
         controller.pannerSpeed = parseInt(controller.pannerSpeedInput.val());
         clearInterval(controller.intervalID)
@@ -92,7 +90,6 @@
           controller.pannerGain.gain.value = 1.0;
         }
       })
-
     } // end of link
 
 })();
