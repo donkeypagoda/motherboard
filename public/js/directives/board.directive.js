@@ -27,7 +27,8 @@
 
       return {
         controller: controller,
-        link: link
+        link: link,
+        template: "templates/board.template.html"
       }
     })
 }());

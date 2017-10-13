@@ -16,7 +16,7 @@
       vm.plug = function(audioCtx, source){
         vm.output;
         vm.bypass = false;
-
+        vm.audioCtx = audioCtx;
         vm.reverbBypassStatus = false;
         vm.reverb = audioCtx.createConvolver();
         vm.reverbInputGain = audioCtx.createGain();
@@ -40,9 +40,9 @@
           vm.getImpulseResponse.open("GET", vm.reverbChoice.plate, true);
           vm.getImpulseResponse.responseType = "arraybuffer";
           vm.getImpulseResponse.onload = () => {
-            vm.audioCtx.decodeAudioData(vm.getImpulseResponse.response,
+            audioCtx.decodeAudioData(vm.getImpulseResponse.response,
               (buffer) => {
-                console.log("tacos");
+                console.log("tacos")
                 vm.reverb.buffer = buffer
               });
           }
