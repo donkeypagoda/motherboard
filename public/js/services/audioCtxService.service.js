@@ -30,7 +30,7 @@
           }})
           .then ((stream) => {
             let source = vm.audioCtx.createMediaStreamSource(stream);
-            console.log("what");
+            console.log("Yeah dude,");
             for(const unit of unitArray){
               unit.plug(vm.audioCtx, source);
               source = unit.output;

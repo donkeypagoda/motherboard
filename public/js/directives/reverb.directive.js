@@ -40,10 +40,11 @@
           vm.getImpulseResponse.open("GET", vm.reverbChoice.plate, true);
           vm.getImpulseResponse.responseType = "arraybuffer";
           vm.getImpulseResponse.onload = () => {
-            audioCtx.decodeAudioData(vm.getImpulseResponse.response,
+            console.log("tacos")
+            return audioCtx.decodeAudioData(vm.getImpulseResponse.response,
               (buffer) => {
-                console.log("tacos")
-                vm.reverb.buffer = buffer
+                console.log("are good")
+                return vm.reverb.buffer = buffer
               });
           }
         vm.getImpulseResponse.send();
