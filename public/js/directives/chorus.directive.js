@@ -70,20 +70,20 @@
       controller.speedControl = root.find("#chorusSpeed");
       controller.bypassControl = root.find("#chorusBypass");
 
-      controller.depthControl.change(() => {
-        controller.depth = parseInt(controller.depthControl.val());
-        clearInterval(controller.intervalID);
-        if (controller.chorusGo){
-          controller.intervalID = setInterval(controller.cycle, controller.speed);
-        }
-      });
-      controller.speedControl.change(() => {
-        controller.speed = parseInt(controller.speedControl.val());
-        clearInterval(controller.intervalID);
-        if (controller.chorusGo){
-          controller.intervalID = setInterval(controller.cycle, controller.speed);
-        }
-      });
+      // controller.depthControl.change(() => {
+      //   controller.depth = parseInt(controller.depthControl.val());
+      //   clearInterval(controller.intervalID);
+      //   if (controller.chorusGo){
+      //     controller.intervalID = setInterval(controller.cycle, controller.speed);
+      //   }
+      // });
+      // controller.speedControl.change(() => {
+      //   controller.speed = parseInt(controller.speedControl.val());
+      //   clearInterval(controller.intervalID);
+      //   if (controller.chorusGo){
+      //     controller.intervalID = setInterval(controller.cycle, controller.speed);
+      //   }
+      // });
 
       controller.bypassControl.change(() => {
         controller.bypass = !controller.bypass;
@@ -101,7 +101,46 @@
 
         }
       });
-
+      controller.depthControl.knob({
+        fgColor:"#222222",
+        bgColor:"#EEEEEE",
+        thickness: 0.3,
+        angleOffset: -130,
+        angleArc: 260,
+        min: 10,
+        step: 1,
+        max: 125,
+        width: 100,
+        height: 100,
+        change : function (value) {
+          console.log("change : ", value);
+          controller.depth = parseInt(controller.depthControl.val());
+          clearInterval(controller.intervalID);
+          if (controller.chorusGo){
+            controller.intervalID = setInterval(controller.cycle, controller.speed);
+          }
+        }
+      })
+      controller.speedControl.knob({
+        fgColor:"#222222",
+        bgColor:"#EEEEEE",
+        thickness: 0.3,
+        angleOffset: -130,
+        angleArc: 260,
+        min: 5,
+        step: 5,
+        max: 1000,
+        width: 100,
+        height: 100,
+        change : function (value) {
+          console.log("change : ", value);
+          controller.speed = parseInt(controller.speedControl.val());
+          clearInterval(controller.intervalID);
+          if (controller.chorusGo){
+            controller.intervalID = setInterval(controller.cycle, controller.speed);
+          }
+        }
+      })
 
     }
 

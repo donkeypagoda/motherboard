@@ -8,7 +8,7 @@
         $scope.content = []
         vm.addUnit = function(unit){
           // <disto></disto><chorus></chorus><delay></delay><panner></panner><reverb></reverb>
-          $scope.content.push("<disto></disto>") // ("<delay config="pedal data from database"></delay><delay></delay>")
+          $scope.content.push("<chorus></chorus>") // ("<delay config="pedal data from database"></delay><delay></delay>")
         }
         vm.addUnit();
 
@@ -30,7 +30,7 @@
       return {
         controller: controller,
         link: link,
-        templateUrl: "templates/board.template.html"
+        // templateUrl: "templates/board.template.html"
       }
     })
 }());
