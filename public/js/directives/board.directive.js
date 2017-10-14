@@ -33,7 +33,7 @@
       return {
         controller: controller,
         link: link,
-        template: "templates/board.template.html"
+        templateUrl: "templates/board.template.html"
       }
     })
 }());
