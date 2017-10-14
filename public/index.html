@@ -26,10 +26,10 @@
     <!-- <script defer type="text/javascript" src="js/services/delay.service.js"></script> -->
     <script defer type="text/javascript" src="js/services/audioCtxService.service.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css"> -->
 
     <!-- <script defer type="text/javascript" src="js/components/test.component.js"></script> -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 
   </head>
@@ -40,6 +40,17 @@
       </div>
       <div class="logo">
         <img src="media/jackssmaller.png">
+      </div>
+      <div >
+        <label>Add A Pedal
+          <select id="addPedalSelect">
+            <option value="disto">Distortion</option>
+            <option value="delay">Delay</option>
+            <option value="reverb">Reverb</option>
+            <option value="chorus">Chorus</option>
+            <option value="panner">Auto-Panner</option>
+          </select>
+        </label>
       </div>
     </header>
     <ui-view></ui-view>

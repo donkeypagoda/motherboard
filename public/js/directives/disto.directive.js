@@ -76,10 +76,10 @@
         //   // console.log(parseFloat(distoSat.value));
         //   controller.disto1.curve = controller.makeDistortionCurve(parseFloat(controller.distoSat.val()));
         // });
-        controller.distoOverdrive.change(() => {
-          // console.log(parseFloat(distoOverdrive.value));
-          controller.distoOver.gain.value = parseFloat(controller.distoOverdrive.val());
-        });
+        // controller.distoOverdrive.change(() => {
+        //   // console.log(parseFloat(distoOverdrive.value));
+        //   controller.distoOver.gain.value = parseFloat(controller.distoOverdrive.val());
+        // });
 
         controller.distoHPFfreq.change(() => {
           // console.log(parseFloat(distoHPFfreq.value));
@@ -119,13 +119,27 @@
               console.log("change : ", value);
               controller.disto1.curve = controller.makeDistortionCurve(parseFloat(controller.distoSat.val()));
             }
-
           })
-          // .val(150)
           .css({display:'inline',padding:'0px 10px'});
 
+          controller.distoOverdrive.knob({
+            fgColor:"#222222",
+            bgColor:"#EEEEEE",
+            thickness: 0.3,
+            angleOffset: -130,
+            angleArc: 260,
+            min: 0.1,
+            step: 0.1,
+            max: 7.0,
+            width: 100,
+            height: 100,
+            change : function (value) {
+              console.log("change : ", value);
+              controller.distoOver.gain.value = parseFloat(controller.distoOverdrive.val());
+            }
+          })
+          .css({display:'inline',padding:'0px 10px'});
 
-        // }());
       }
 
 
