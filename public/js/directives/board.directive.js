@@ -21,9 +21,9 @@
       function link($scope, element, iElement) {
         const root = $(iElement)
         controller.pedalSelect = root.find("#addPedalSelect")
+        console.log(controller.pedalSelect.val());
         controller.pedalSelect.change(() => {
 
-          console.log(controller.pedalSelect.val());
         })
         element.html($scope.content.join(""));
         $compile(element.contents())($scope);
