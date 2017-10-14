@@ -60,17 +60,17 @@
 
 
       // UI XXXXXXXXXXXXXXXXXXXXXXXXX
-      controller.time.change(() => {
-        console.log(controller.time.val());
-        controller.delay.delayTime.value = parseFloat(controller.time.val());
-      });
-      controller.feedbackSlider.change(() => {
-        controller.feedback.gain.value = parseFloat(controller.feedbackSlider.val());
-      });
-      controller.delayWetDryMix.change(() => {
-        controller.delayMixMute.gain.value = parseFloat(controller.delayWetDryMix.val());
-        controller.delayPassThru.gain.value = 0.1 / parseFloat(controller.delayWetDryMix.val());
-      });
+      // controller.time.change(() => {
+      //   console.log(controller.time.val());
+      //   controller.delay.delayTime.value = parseFloat(controller.time.val());
+      // });
+      // controller.feedbackSlider.change(() => {
+      //   controller.feedback.gain.value = parseFloat(controller.feedbackSlider.val());
+      // });
+      // controller.delayWetDryMix.change(() => {
+      //   controller.delayMixMute.gain.value = parseFloat(controller.delayWetDryMix.val());
+      //   controller.delayPassThru.gain.value = 0.1 / parseFloat(controller.delayWetDryMix.val());
+      // });
       controller.delayBypass.change(() => {
         controller.bypass = !controller.bypass;
         if(controller.bypass){
@@ -104,5 +104,56 @@
           controller.delayMute.gain.value = 1;
         }
       });
-    }
+      controller.time.knob({
+        fgColor:"#222222",
+        bgColor:"#EEEEEE",
+        thickness: 0.3,
+        angleOffset: -130,
+        angleArc: 260,
+        min: 0.0,
+        step: 0.05,
+        max: 7.0,
+        width: 100,
+        height: 100,
+        change : function (value) {
+          console.log("change : ", value);
+          controller.delay.delayTime.value = parseFloat(controller.time.val());
+        }
+      })
+      controller.feedbackSlider.knob({
+        fgColor:"#222222",
+        bgColor:"#EEEEEE",
+        thickness: 0.3,
+        angleOffset: -130,
+        angleArc: 260,
+        min: 0.0,
+        step: 0.05,
+        max: 1.2,
+        width: 100,
+        height: 100,
+        change : function (value) {
+          console.log("change : ", value);
+          controller.feedback.gain.value = parseFloat(controller.feedbackSlider.val());
+        }
+      })
+      controller.delayWetDryMix.knob({
+        fgColor:"#222222",
+        bgColor:"#EEEEEE",
+        thickness: 0.3,
+        angleOffset: -130,
+        angleArc: 260,
+        min: 0.0,
+        step: 0.01,
+        max: 0.9,
+        width: 100,
+        height: 100,
+        change : function (value) {
+          console.log("change : ", value);
+          controller.delayMixMute.gain.value = parseFloat(controller.delayWetDryMix.val());
+          controller.delayPassThru.gain.value = 0.1 / parseFloat(controller.delayWetDryMix.val());
+        }
+      })
+
+
+    } // end of link
 })();
