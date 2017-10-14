@@ -26,12 +26,7 @@
         $compile(element.contents())($scope);
       }
       link.$inject = ["$scope"]
-
-      return {
-        controller: controller,
-        link: link
-        // templateUrl: "templates/board.template.html"
-      } // end of link
+      // end of link
 
       return {
         controller: controller,
