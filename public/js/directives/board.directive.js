@@ -5,15 +5,16 @@
       return {
         controller,
         controllerAs: '$ctrl',
-        template: `
-          <div>
-            <button ng-click="$ctrl.units.addToBoard('delay')">Add Delay</button>
-            <button ng-click="$ctrl.units.addToBoard('disto')">Add Disto</button>
-          </div>
-          <div ng-repeat="u in $ctrl.units.currentUnits track by $index">
-            <pedal-holder unit="{{u}}"></pedal-holder>
-          </div>
-          `
+        templateUrl: "templates/board.template.html" 
+        // `
+        //   <div>
+        //     <button ng-click="$ctrl.units.addToBoard('delay')">Add Delay</button>
+        //     <button ng-click="$ctrl.units.addToBoard('disto')">Add Disto</button>
+        //   </div>
+        //   <div ng-repeat="u in $ctrl.units.currentUnits track by $index">
+        //     <pedal-holder unit="{{u}}"></pedal-holder>
+        //   </div>
+        //   `
       }
     }) // end of directive
 

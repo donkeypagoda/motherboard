@@ -1,19 +1,7 @@
-<!-- <header>
-  <div class="logo">
-    <img src="media/motherboardverysmall.png">
-  </div>
-  <div class="logo">
-    <img src="media/jackssmaller.png">
-  </div>
-  <div >
-    <label>Add A Pedal
-      <select id="addPedalSelect">
-        <option value="disto">Distortion</option>
-        <option value="delay">Delay</option>
-        <option value="reverb">Reverb</option>
-        <option value="chorus">Chorus</option>
-        <option value="panner">Auto-Panner</option>
-      </select>
-    </label>
-  </div>
-</header> -->
+<div>
+  <button ng-click="$ctrl.units.addToBoard('delay')">Add Delay</button>
+  <button ng-click="$ctrl.units.addToBoard('disto')">Add Disto</button>
+</div>
+<div ng-repeat="u in $ctrl.units.currentUnits track by $index">
+  <pedal-holder unit="{{u}}"></pedal-holder>
+</div>
