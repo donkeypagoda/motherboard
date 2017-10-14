@@ -81,10 +81,10 @@
         //   controller.distoOver.gain.value = parseFloat(controller.distoOverdrive.val());
         // });
 
-        controller.distoHPFfreq.change(() => {
-          // console.log(parseFloat(distoHPFfreq.value));
-          controller.distoHPF.frequency.value = parseFloat(controller.distoHPFfreq.val());
-        })
+        // controller.distoHPFfreq.change(() => {
+        //   // console.log(parseFloat(distoHPFfreq.value));
+        //   controller.distoHPF.frequency.value = parseFloat(controller.distoHPFfreq.val());
+        // })
         controller.distoLPFfreq.change(() => {
           // console.log(parseFloat(distoLPFfreq.value));
           controller.distoLPF.frequency.value = parseFloat(controller.distoLPFfreq.val());
@@ -136,6 +136,42 @@
             change : function (value) {
               console.log("change : ", value);
               controller.distoOver.gain.value = parseFloat(controller.distoOverdrive.val());
+            }
+          })
+          .css({display:'inline',padding:'0px 10px'});
+
+          controller.distoHPFfreq.knob({
+            fgColor:"#222222",
+            bgColor:"#EEEEEE",
+            thickness: 0.3,
+            angleOffset: -130,
+            angleArc: 260,
+            min: 10,
+            step: 25,
+            max: 4000,
+            width: 100,
+            height: 100,
+            change : function (value) {
+              console.log("change : ", value);
+              controller.distoHPF.frequency.value = parseFloat(controller.distoHPFfreq.val());
+            }
+          })
+          .css({display:'inline',padding:'0px 10px'});
+
+          controller.distoLPFfreq.knob({
+            fgColor:"#222222",
+            bgColor:"#EEEEEE",
+            thickness: 0.3,
+            angleOffset: -130,
+            angleArc: 260,
+            min: 2000,
+            step: 25,
+            max: 15000,
+            width: 100,
+            height: 100,
+            change : function (value) {
+              console.log("change : ", value);
+              controller.distoLPF.frequency.value = parseFloat(controller.distoLPFfreq.val());
             }
           })
           .css({display:'inline',padding:'0px 10px'});
