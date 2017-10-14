@@ -18,8 +18,13 @@
       }
       controller.$inject = ["$scope"];
 
-      const link = function ($scope, element) {
+      function link($scope, element, iElement) {
+        const root = $(iElement)
+        controller.pedalSelect = root.find("#addPedalSelect")
+        controller.pedalSelect.change(() => {
 
+          console.log(controller.pedalSelect.val());
+        })
         element.html($scope.content.join(""));
         $compile(element.contents())($scope);
       }
