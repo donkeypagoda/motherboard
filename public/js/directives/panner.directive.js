@@ -53,13 +53,13 @@
       controller.pannerSpeedInput = root.find("#pannerSpeed");
       controller.pannerBypass = root.find("#pannerBypass");
 
-      controller.pannerSpeedInput.change(() => {
-        controller.pannerSpeed = parseInt(controller.pannerSpeedInput.val());
-        clearInterval(controller.intervalID)
-        if (controller.pannerGo) {
-          controller.intervalID = setInterval(controller.panInc, parseInt(controller.pannerSpeedInput.val()))
-        }
-      })
+      // controller.pannerSpeedInput.change(() => {
+      //   controller.pannerSpeed = parseInt(controller.pannerSpeedInput.val());
+      //   clearInterval(controller.intervalID)
+      //   if (controller.pannerGo) {
+      //     controller.intervalID = setInterval(controller.panInc, parseInt(controller.pannerSpeedInput.val()))
+      //   }
+      // })
 
       controller.pannerBypass.change(() => {
         controller.bypass = !controller.bypass
@@ -71,6 +71,27 @@
             controller.intervalID = setInterval(controller.panInc, parseInt(controller.pannerSpeedInput.val()))
           }
       })
+      controller.pannerSpeedInput.knob({
+        fgColor:"#222222",
+        bgColor:"#EEEEEE",
+        thickness: 0.3,
+        angleOffset: -130,
+        angleArc: 260,
+        min: 0.1,
+        step: 0.1,
+        max: 750,
+        width: 100,
+        height: 100,
+        change : function (value) {
+          console.log("change : ", value);
+          controller.pannerSpeed = parseInt(controller.pannerSpeedInput.val());
+          clearInterval(controller.intervalID)
+          if (controller.pannerGo) {
+            controller.intervalID = setInterval(controller.panInc, parseInt(controller.pannerSpeedInput.val()))
+          }
+        }
+      })
+      .css({display:'inline',padding:'0px 10px'});
     } // end of link
 
 })();

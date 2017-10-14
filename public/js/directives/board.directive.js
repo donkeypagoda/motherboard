@@ -8,7 +8,7 @@
         $scope.content = []
         vm.addUnit = function(unit){
           // <disto></disto><chorus></chorus><delay></delay><panner></panner><reverb></reverb>
-          $scope.content.push("<delay></delay>") // ("<delay config="pedal data from database"></delay><delay></delay>")
+          $scope.content.push("<panner></panner>") // ("<delay config="pedal data from database"></delay><delay></delay>")
         }
         vm.addUnit();
       } // end of controller
