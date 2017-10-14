@@ -1,5 +1,5 @@
-const pedalSelect = document.querySelector("#addPedalSelect")
-pedalSelect.oninput = () =>{
-  console.log(pedalSelect.value);
-
-}
+// const pedalSelect = document.querySelector("#addPedalSelect")
+// pedalSelect.oninput = () =>{
+//   console.log(pedalSelect.value);
+//
+// }

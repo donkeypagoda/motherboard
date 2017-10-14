@@ -17,11 +17,11 @@
 
       function link($scope, element, iElement) {
         const root = $(iElement)
-        const pedalSelect = root.find("#addPedalSelect")
-        console.log(pedalSelect.val());
-        pedalSelect.change(() => {
-
-        })
+        // const pedalSelect = root.find("#addPedalSelect")
+        // console.log(pedalSelect.val());
+        // pedalSelect.change(() => {
+        //
+        // })
         element.html($scope.content.join(""));
         $compile(element.contents())($scope);
       }

@@ -16,7 +16,7 @@
     <script defer type="text/javascript" src="js/units/chorus.js"></script> -->
     <script defer type="text/javascript" src="js/app.module.js"></script>
     <script defer type="text/javascript" src="js/app.routes.js"></script>
-    <script defer type="text/javascript" src="js/main.js"></script>
+    <script defer type="text/javascript" src="js/directives/headMenu.directive.js"></script>
     <script defer type="text/javascript" src="js/directives/delay.directive.js"></script>
     <script defer type="text/javascript" src="js/directives/board.directive.js"></script>
     <script defer type="text/javascript" src="js/directives/chorus.directive.js"></script>
@@ -35,7 +35,7 @@
   </head>
   <body>
     <header>
-      <div class="logo">
+      <!-- <div class="logo">
         <img src="media/motherboardverysmall.png">
       </div>
       <div class="logo">
@@ -51,7 +51,8 @@
             <option value="panner">Auto-Panner</option>
           </select>
         </label>
-      </div>
+      </div> -->
+      <head-menu></head-menu>
     </header>
     <ui-view></ui-view>
     <!-- <test></test> -->
