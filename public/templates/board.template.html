@@ -1,11 +1,15 @@
 <header>
-  <div class="logo">
-    <img src="media/motherboardverysmall.png">
+  <div class="row">
+    <div class="col"></div>
+    <div class="logo col">
+      <img src="media/motherboardverysmall.png">
+    </div>
+    <div class="col"></div>
   </div>
-  <div class="logo">
+  <!-- <div class="logo">
     <img src="media/jackssmaller.png">
-  </div>
-  <div >
+  </div> -->
+  <div>
     <label class="standOut">Add A Pedal
       <span ng-repeat="unit in $ctrl.units.availableUnits">
           <button ng-click="$ctrl.units.addToBoard(unit)">Add {{unit}}</button>
@@ -19,8 +23,10 @@
   </div>
 
 </header>
-  <div>
-    <div ng-repeat="u in $ctrl.units.currentUnits track by $index">
-      <pedal-holder unit="{{u}}"></pedal-holder>
+  <div class="container">
+    <div class="row">
+      <div ng-repeat="u in $ctrl.units.currentUnits track by $index">
+        <pedal-holder unit="{{u}}"></pedal-holder>
+      </div>
     </div>
   </div>
