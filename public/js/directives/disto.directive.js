@@ -17,6 +17,7 @@
 
         vm.plug = function(audioCtx, source){
           vm.distoOver = audioCtx.createGain();
+          vm.distoOver.gain.value = 0.1;
           vm.disto1 = audioCtx.createWaveShaper();
           vm.makeDistortionCurve = (amount) => {
             let k = typeof amount === 'number' ? amount : 50,

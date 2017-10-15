@@ -29,6 +29,9 @@
 
 
       vm.buildSignalPath = function(unitArray){
+        vm.audioCtx.close()
+        .then(() => {
+          vm.audioCtx = new AudioContext();
           navigator.mediaDevices.getUserMedia({audio: { latency: 0.01,
             echoCancellation: false,
             mozNoiseSuppression: false,
@@ -47,7 +50,9 @@
             }
               unitArray[unitArray.length -1].output.connect(vm.audioCtx.destination);
             }
-          })
-      }
+          }) // end of .then for navigator.mediaDevices.getUserMedia
+        }) // end of .then for audioCtx.close
+      } // end of buildSignalPath function
+
     }
 }());
