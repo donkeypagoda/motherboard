@@ -5,23 +5,19 @@
       return {
         controller,
         controllerAs: '$ctrl',
-        templateUrl: "templates/board.template.html" 
-        // `
-        //   <div>
-        //     <button ng-click="$ctrl.units.addToBoard('delay')">Add Delay</button>
-        //     <button ng-click="$ctrl.units.addToBoard('disto')">Add Disto</button>
-        //   </div>
-        //   <div ng-repeat="u in $ctrl.units.currentUnits track by $index">
-        //     <pedal-holder unit="{{u}}"></pedal-holder>
-        //   </div>
-        //   `
+        templateUrl: "templates/board.template.html"
       }
     }) // end of directive
 
-    controller.inject = ['unitService'];
-    function controller(unitService) {
+    controller.inject = ['unitService', 'audioCtxService'];
+    function controller(unitService, audioCtxService) {
       const vm = this
       vm.units = unitService;
+      vm.audioCtxService = audioCtxService;
+      vm.removeLastAndRebuild = function(){
+        vm.units.removeLast();
+        vm.audioCtxService.removeLast();
+      }
     } // end of controller
 
 

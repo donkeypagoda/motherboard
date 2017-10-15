@@ -53,14 +53,6 @@
       controller.pannerSpeedInput = root.find("#pannerSpeed");
       controller.pannerBypass = root.find("#pannerBypass");
 
-      // controller.pannerSpeedInput.change(() => {
-      //   controller.pannerSpeed = parseInt(controller.pannerSpeedInput.val());
-      //   clearInterval(controller.intervalID)
-      //   if (controller.pannerGo) {
-      //     controller.intervalID = setInterval(controller.panInc, parseInt(controller.pannerSpeedInput.val()))
-      //   }
-      // })
-
       controller.pannerBypass.change(() => {
         controller.bypass = !controller.bypass
         if (controller.bypass) {

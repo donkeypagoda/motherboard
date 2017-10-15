@@ -72,19 +72,6 @@
         controller.distoLPFfreq = root.find("#distoLPFfreq")
         controller.distoBypass = root.find("#distoBypass")
 
-        // controller.distoSat.change(() => {
-        //   // console.log(parseFloat(distoSat.value));
-        //   controller.disto1.curve = controller.makeDistortionCurve(parseFloat(controller.distoSat.val()));
-        // });
-        // controller.distoOverdrive.change(() => {
-        //   // console.log(parseFloat(distoOverdrive.value));
-        //   controller.distoOver.gain.value = parseFloat(controller.distoOverdrive.val());
-        // });
-
-        // controller.distoHPFfreq.change(() => {
-        //   // console.log(parseFloat(distoHPFfreq.value));
-        //   controller.distoHPF.frequency.value = parseFloat(controller.distoHPFfreq.val());
-        // })
         controller.distoLPFfreq.change(() => {
           // console.log(parseFloat(distoLPFfreq.value));
           controller.distoLPF.frequency.value = parseFloat(controller.distoLPFfreq.val());
