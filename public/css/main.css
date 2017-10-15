@@ -32,7 +32,6 @@ header {
 #chorusDiv {
   background-color: orange;
 }
-
-/*.logo {
-  align-self: center;
-}*/
+.standOut {
+  color: white;
+}

@@ -1,46 +1,49 @@
 <!-- reverb -->
 <div id="reverbDiv" class="unit container col"><h1>Reverb</h1>
   <hr>
-  <div>
-    <label>Convolution Model
-      <select id="reverbSelect">
-        <option value="plate">Plate</option>
-        <option value="hall">Hall</option>
-        <option value="dungeon">Dungeon</option>
-      </select>
-    </label>
+  <div class="row">
+    <div>
+      <label>Amount
+        <input id="reverbAmount" type="text" class="dial" value="0.7">
+      </label>
+    </div>
+    <div>
+      <label>Mix
+        <input id="reverbMix" type="text" class="dial" value="0.5">
+      </label>
+    </div>
   </div>
-  <div>
-    <label>Amount
-      <input id="reverbAmount" type="text" class="dial" value="0.7">
-    </label>
+  <div class="row">
+    <div>
+      <label>Hi Pass
+        <input id="reverbHiPass" type="text" class="dial" value="125">
+      </label>
+    </div>
+    <div>
+      <label>Lo Pass
+        <input id="reverbLoPass" type="text" class="dial" value="13000">
+      </label>
+    </div>
   </div>
-  <div>
-    <label>Mix
-      <input id="reverbMix" type="text" class="dial" value="0.5">
-    </label>
-  </div>
-  <div>
-    <label>Hi Pass
-      <input id="reverbHiPass" type="text" class="dial" value="125">
-    </label>
-  </div>
-  <div>
-    <label>Lo Pass
-      <input id="reverbLoPass" type="text" class="dial" value="13000">
-    </label>
-  </div>
-  <div>
-    <label>Reverb Engaged?
-      <input id="reverbBypass" type="checkbox" checked>
-    </label>
-  </div>
-  <div>
-    <label>Reverb Input Engaged?
-      <input id="reverbInputBypass" type="checkbox" checked>
-    </label>
+  <div class="row">
+    <div>
+      <label>Reverb Engaged?
+        <input id="reverbBypass" type="checkbox" checked>
+      </label>
+    </div>
+    <div>
+      <label>Reverb Input Engaged?
+        <input id="reverbInputBypass" type="checkbox" checked>
+      </label>
+    </div>
+    <div>
+      <label>Convolution Model
+        <select id="reverbSelect">
+          <option value="plate">Plate</option>
+          <option value="hall">Hall</option>
+          <option value="dungeon">Dungeon</option>
+        </select>
+      </label>
+    </div>
   </div>
 </div>
-<!-- <div>
-  <br>
-</div> -->
