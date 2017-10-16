@@ -33,11 +33,8 @@
       <p> </p>
     </div>
     <div class="row">
-
-        <div ng-repeat="u in $ctrl.units.currentUnits track by $index">
+        <div class="col-3" ng-repeat="u in $ctrl.units.currentUnits track by $index">
           <pedal-holder unit="{{u}}"></pedal-holder>
         </div>
-
-
     </div>
   </div>
