@@ -6,20 +6,25 @@
     </div>
     <div class="col"></div>
   </div>
-  <!-- <div class="logo">
-    <img src="media/jackssmaller.png">
-  </div> -->
-  <div>
-    <label class="standOut">Add A Pedal
+  <p> </p>
+  <div class="row">
+    <div class="col-2">
+      <p> </p>
+    </div>
+    <div class="col-md-auto">
+      <span class="standOut">Add A Pedal</span>
       <span ng-repeat="unit in $ctrl.units.availableUnits">
           <button ng-click="$ctrl.units.addToBoard(unit)">Add {{unit}}</button>
       </span>
-    </label>
-    <label class="standOut">
+    </div>
+    <div class="col">
       <span>
           <button ng-click="$ctrl.removeLastAndRebuild()">Remove Last Pedal</button>
       </span>
-    </label>
+    </div>
+  </div>
+  <div class="row">
+    <p> </p>
   </div>
 
 </header>
