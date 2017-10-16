@@ -25,7 +25,7 @@ const pedals = [
     pedal_name: 'panner',
     pedal_template: JSON.stringify([125, true])
   }]
-  
+
 exports.seed = function(knex, Promise) {
   return knex('pedals').del()
     .then(() => {

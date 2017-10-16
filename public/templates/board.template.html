@@ -28,13 +28,16 @@
   </div>
 
 </header>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <p> </p>
     </div>
     <div class="row">
-      <div ng-repeat="u in $ctrl.units.currentUnits track by $index">
-        <pedal-holder unit="{{u}}"></pedal-holder>
-      </div>
+
+        <div ng-repeat="u in $ctrl.units.currentUnits track by $index">
+          <pedal-holder unit="{{u}}"></pedal-holder>
+        </div>
+
+
     </div>
   </div>
