@@ -1,36 +1,43 @@
 <!-- Delay -->
-  <div id="delayDiv" class="unit container col"><h1>Delay</h1>
-    <hr>
-    <span>
-      <label class="center">Delay Time
-        <input id="delayTime" type="text" class="dial" value="0.25">
-      </label>
-    </span>
-    <span>
-      <label>Delay Feedback
-        <input id="delayFeedback" type="text" class="dial" value="0.0">
-      </label>
-    </span>
-    <span>
-      <label>Wet and Dry
-        <input id="delayWetDryMix" type="text" class="dial" value="0.5">
-      </label>
-    </span>
-    <div>
-      <span>
-        <label>Delay Engaged?
-          <input id="delayBypass" type="checkbox" checked>
-        </label>
-      </span>
-      <span>
-        <label>Delay Input Engaged?
-          <input id="delayInputBypass" type="checkbox" checked>
-        </label>
-      </span>
-      <span>
-        <label>Feedback Input Engaged?
-          <input id="feedbackBypass" type="checkbox" checked>
-        </label>
-      </span>
+  <div id="delayDiv" class="unit container">
+    <div class="row text-center">
+      <div class="col">
+        <h1>Delay</h1>
+      </div>
     </div>
-  </div>
+      <div class="row">
+        <div class="col text-center">
+          <input id="delayTime" type="text" class="dial" value="0.25">
+          <p>Delay Time</p>
+        </div>
+        <div class="col text-center">
+          <input id="delayFeedback" type="text" class="dial" value="0.0">
+          <p>Delay Feedback</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center">
+          <input id="delayWetDryMix" type="text" class="dial" value="0.5">
+          <p>Wet and Dry</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-auto text-center">
+          <label>Delay Engaged?
+            <input id="delayBypass" type="checkbox" checked>
+          </label>
+        </div>
+        <div class="col-md-auto text-center">
+          <label>Delay Input Engaged?
+            <input id="delayInputBypass" type="checkbox" checked>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center">
+          <label>Feedback Input Engaged?
+            <input id="feedbackBypass" type="checkbox" checked>
+          </label>
+        </div>
+      </div>
+    </div>
