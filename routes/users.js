@@ -15,7 +15,7 @@ router.post('/users', (req, res, next) => {
       }
       bcrypt.hash(req.body.password, 12)
         .then((password) => {
-          const newUser = {'email': req.body.email, 'username': req.body.username, 'hashed_password': password, 'maps_completed': []};
+          const newUser = {'email': req.body.email, 'username': req.body.username, 'email': req.body.email, 'hashed_password': password};
           return knex('users').insert(newUser, '*')
         })
         .then((result) => {
@@ -42,5 +42,6 @@ router.get('/users/:id', (req, res, next) => {
     })
     .catch((err) => next(err))
 })
+
 
 module.exports = router;

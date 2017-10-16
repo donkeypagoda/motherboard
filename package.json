@@ -21,6 +21,7 @@
   "dependencies": {
     "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.18.2",
+    "boom": "^6.0.0",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.1",
     "jsonwebtoken": "^8.0.1",
