@@ -1,4 +1,4 @@
-const Pbs = [
+const pbs = [
   {
     id: 1,
     board_id: 1,
@@ -35,18 +35,18 @@ const Pbs = [
     pedal_order: 3
   }]
 exports.seed = function(knex, Promise) {
-  return knex('Pb').del()
+  return knex('pb').del()
     .then(() => {
       return knex.raw(
-        "SELECT setval('Pb_id_seq', 1, false);"
+        "SELECT setval('pb_id_seq', 1, false);"
       )
     })
     .then(function () {
-      return knex('Pb').insert(Pbs);
+      return knex('pb').insert(pbs);
     })
     .then(() => {
       return knex.raw(
-        "SELECT setval('Pb_id_seq', (SELECT MAX(id) FROM Pb));"
+        "SELECT setval('pb_id_seq', (SELECT MAX(id) FROM pb));"
       );
     });
 };
