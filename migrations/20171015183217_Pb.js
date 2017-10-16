@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     table.integer('board_id').references('boards.id').notNullable().onDelete('CASCADE');
     table.integer('pedal_id').references('pedals.id').notNullable().onDelete('CASCADE');
     // table.integer('user_id').references('boards.id').notNullable().onDelete('CASCADE');
-    table.json('pedal_config').notNullable().defaultTo(JSON.stringify([]));
+    table.json('pedal_config');
     table.integer('pedal_order');
   });
 };
