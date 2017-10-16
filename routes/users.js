@@ -42,6 +42,15 @@ router.get('/users/:id', (req, res, next) => {
     })
     .catch((err) => next(err))
 })
+router.get('/users', (req, res, next) => {
+  knex('users')
+    .select('id')
+    .then((user) => {
+      res.send(user)
+      console.log(user);
+    })
+    .catch((err) => next(err))
+})
 
 
 module.exports = router;
