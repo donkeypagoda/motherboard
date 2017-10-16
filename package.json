@@ -31,5 +31,8 @@
     "nodemon": "^1.12.1",
     "path": "^0.12.7",
     "pg": "^7.3.0"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0"
   }
 }
