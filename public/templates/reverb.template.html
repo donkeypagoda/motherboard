@@ -6,44 +6,40 @@
     </div>
   </div>
   <hr>
-  <div class="row text-center">
-    <div>
-      <label>Amount
-        <input id="reverbAmount" type="text" class="dial" value="0.7">
-      </label>
+  <div class="row">
+    <div class="col text-center">
+      <input id="reverbAmount" type="text" class="dial" value="0.7">
+      <p>Amount</p>
     </div>
-    <div>
-      <label>Mix
-        <input id="reverbMix" type="text" class="dial" value="0.5">
-      </label>
+    <div class="col text-center">
+      <input id="reverbMix" type="text" class="dial" value="0.5">
+      <p>Mix</p>
     </div>
   </div>
   <div class="row">
-    <div>
-      <label>Hi Pass
+    <div class="col text-center">
         <input id="reverbHiPass" type="text" class="dial" value="125">
-      </label>
+        <p>Hi Pass</p>
     </div>
-    <div>
-      <label>Lo Pass
+    <div class="col text-center">
         <input id="reverbLoPass" type="text" class="dial" value="13000">
-      </label>
+        <p>Lo Pass</p>
     </div>
   </div>
   <div class="row">
-    <div>
+    <div class="col-md-auto text-center">
       <label>Reverb Engaged?
         <input id="reverbBypass" type="checkbox" checked>
       </label>
     </div>
-    <div>
+    <div class="col-md-auto text-center">
       <label>Reverb Input Engaged?
         <input id="reverbInputBypass" type="checkbox" checked>
       </label>
     </div>
   </div>
   <div class="row">
-    <div>
+    <div class="col text-center">
       <label>Convolution Model
         <select id="reverbSelect">
           <option value="plate">Plate</option>
