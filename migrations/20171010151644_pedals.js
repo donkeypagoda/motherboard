@@ -4,7 +4,8 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('pedals', (table) => {
     table.increments();
     table.string('pedalname').notNullable().unique();
-    table.json('pedal_template').defaultTo({});
+    table.json('pedal_template').notNullable().defaultTo(JSON.stringify([]));
+    table.integer('pedal_order');
   });
 };
 
