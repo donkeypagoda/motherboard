@@ -1,13 +1,44 @@
+const pedals = [
+  {
+    id: 1,
+    pedal_name: 'disto',
+    pedal_template: JSON.stringify([150, 0.1, 60, 15000, true])
 
+  },
+  {
+    id: 2,
+    pedal_name: 'chorus',
+    pedal_template: JSON.stringify([50, 300, true])
+  },
+  {
+    id: 3,
+    pedal_name: 'delay',
+    pedal_template: JSON.stringify([0.25, 0.0, 0.5, true, true, true])
+  },
+  {
+    id: 4,
+    pedal_name: 'reverb',
+    pedal_template: JSON.stringify([0.7, 0.5, 125, 13000, true, true, "plate"])
+  },
+  {
+    id: 5,
+    pedal_name: 'panner',
+    pedal_template: JSON.stringify([125, true])
+  }]
+  
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('pedals').del()
+    .then(() => {
+      return knex.raw(
+        "SELECT setval('pedals_id_seq', 1, false);"
+      );
+    })
     .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
+      return knex('pedals').insert(pedals);
+    })
+    .then(() => {
+      return knex.raw(
+        "SELECT setval('pedals_id_seq', (SELECT MAX(id) FROM pedals));"
+      );
     });
 };

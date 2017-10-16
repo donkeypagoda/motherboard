@@ -1,13 +1,30 @@
+const boards = [
+  {
+    id: 1,
+    user_id: 1,
+    board_name: "shredpocalypse"
+
+  },
+  {
+    id: 2,
+    user_id: 2,
+    board_name: "spacefacefoogieboogie"
+  }]
+
 
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('boards').del()
+    .then(() => {
+      return knex.raw(
+        "SELECT setval('boards_id_seq', 1, false);"
+      );
+    })
     .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
+      return knex('boards').insert(boards);
+    })
+    .then(() => {
+      return knex.raw(
+        "SELECT setval('boards_id_seq', (SELECT MAX(id) FROM boards));"
+      );
     });
 };
