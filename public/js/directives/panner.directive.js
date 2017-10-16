@@ -76,8 +76,9 @@
         height: 100,
         change : function (value) {
           console.log("change : ", value);
-          controller.pannerSpeed = parseInt(controller.pannerSpeedInput.val());
           clearInterval(controller.intervalID)
+          controller.pannerSpeed = parseInt(controller.pannerSpeedInput.val())
+          controller.intervalID = setInterval(controller.panInc, parseInt(controller.pannerSpeedInput.val()))
           if (controller.pannerGo) {
             controller.intervalID = setInterval(controller.panInc, parseInt(controller.pannerSpeedInput.val()))
           }
