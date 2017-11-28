@@ -24,9 +24,11 @@
     </div>
     <div class="col">
       <span>
-        <button>Login</button>
-          <input type="email">
-          <input type="password">
+        <form>
+          <input type="email" ng-model="$ctrl.signIn.email" name="email">
+          <input type="password" ng-model="$ctrl.signIn.password" name="password">
+          <button type="submit" ng-click="$ctrl.login($ctrl.signIn)">Login</button>
+        </form>
       </span>
     </div>
     <div class="col">
