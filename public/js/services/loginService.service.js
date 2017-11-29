@@ -7,7 +7,13 @@
       const vm  = this;
 
       this.login = function (signIn){
-        return 
+        const userData = {
+          data: JSON.stringify({ signIn.email, signIn.password }),
+          dataType: 'json',
+          type: 'POST',
+          url: '/token'
+        };
+        return $http.get(userData)
 
       }
 

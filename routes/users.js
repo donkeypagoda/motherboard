@@ -7,6 +7,9 @@ const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const router = express.Router();
 
+router.get('/token', (req, res) => {
+  jwt.verify(req.cookies.token, process.env.JWT_KEY)
+})
 // router.post('/users', (req, res, next) => {
 //   knex('users').where('email', req.body.email).first()
 //     .then((row) => {

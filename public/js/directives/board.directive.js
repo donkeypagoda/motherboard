@@ -9,11 +9,13 @@
       }
     }) // end of directive
 
-    controller.inject = ['unitService', 'audioCtxService'];
-    function controller(unitService, audioCtxService) {
+    controller.inject = ['unitService', 'audioCtxService', 'loginService'];
+    function controller(unitService, audioCtxService, loginService) {
       const vm = this
       vm.units = unitService;
       vm.audioCtxService = audioCtxService;
+      vm.loginService = loginService;
+      
       vm.removeLastAndRebuild = function(){
         vm.units.removeLast();
         vm.audioCtxService.removeLast();
