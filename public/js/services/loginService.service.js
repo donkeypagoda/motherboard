@@ -21,7 +21,7 @@
         };
         return $http.post("/token", userData)
           .then(function (response) {
-            console.log(response.data);
+            console.log(response);
             return response.data
           })
 

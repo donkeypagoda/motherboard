@@ -8,16 +8,22 @@ const knex = require('../knex');
 const { camelizeKeys } = require('humps');
 const router = express.Router();
 
-
-
-router.get('/token', (req, res) => {
-  // console.log("token");
-  jwt.verify(req.cookies.token, process.env.JWT_KEY, (err, payload) => {
-    if (err){
-      return res.send(false);
+const auth = function(req, res, next) {
+  jwt.verify(req.cookies.token, process.env.JWT_KEY, (err, playload) => {
+    if (err) {
+      return next(boom.create(401, 'Unauthorized'));
     }
-    res.send(true);
-  })
+
+    req.claim = playload;
+
+    next();
+  });
+};
+
+// test route to go with test.js remove for deploy
+router.get('/token', auth, (req, res) => {
+  console.log("token");
+  console.log(req.cookies.token);
 })
 
 router.post('/token', (req, res, next) => {
