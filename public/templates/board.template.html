@@ -33,7 +33,11 @@
     </div>
     <div class="col">
       <span>
-        <button>Sign Up</button>
+        <form>
+          <input type="email" ng-model="$ctrl.signUp.email" name="email">
+          <input type="password" ng-model="$ctrl.signUp.password" name="password">
+          <button type="submit" ng-click="$ctrl.loginService.signUp($ctrl.signUp)">Sign Up!</button>
+        </form>
       </span>
     </div>
   </div>

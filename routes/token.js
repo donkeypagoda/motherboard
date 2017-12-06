@@ -20,7 +20,7 @@ const auth = function(req, res, next) {
   });
 };
 
-// test route to go with test.js remove for deploy
+// test route to go with test.js remove before deploy
 router.get('/token', auth, (req, res) => {
   console.log("token");
   console.log(req.cookies.token);

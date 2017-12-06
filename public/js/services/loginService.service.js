@@ -24,7 +24,24 @@
             console.log(response);
             return response.data
           })
+      }
 
+      this.signUp = function (signUp){
+        console.log("attempt" + signUp);
+        let email = signUp.email;
+        let password = signUp.password;
+        const newUser = {
+          contentType: 'application/json',
+          data: JSON.stringify({ email, password }),
+          dataType: 'json',
+          type: 'POST',
+          url: '/users',
+        }
+        return $http.post("/users", newUser)
+          .then(function (response) {
+            console.log(response);
+            return response.data
+          })
       }
 
 
