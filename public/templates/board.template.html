@@ -27,7 +27,7 @@
         <form>
           <input type="email" ng-model="$ctrl.signIn.email" name="email">
           <input type="password" ng-model="$ctrl.signIn.password" name="password">
-          <button type="submit" ng-click="$ctrl.login($ctrl.signIn)">Login</button>
+          <button type="submit" ng-click="$ctrl.loginService.login($ctrl.signIn)">Login</button>
         </form>
       </span>
     </div>
