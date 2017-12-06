@@ -11,25 +11,22 @@
       this.login = function (signIn){
         console.log("attempt" + signIn);
         let email = signIn.email;
-        let password = signIn.password
+        let password = signIn.password;
         const userData = {
+          contentType: 'application/json',
           data: JSON.stringify({ email, password }),
           dataType: 'json',
-          type: 'GET',
+          type: 'POST',
           url: '/token',
         };
-        return $http.get(userData)
+        return $http.post("/token", userData)
+          .then(function (response) {
+            console.log(response.data);
+            return response.data
+          })
 
       }
 
 
     }
 }());
-
-// const options = {
-//       contentType: 'application/json',
-//       data: JSON.stringify({ email, password }),
-//       dataType: 'json',
-//       type: 'POST',
-//       url: '/token'
-// };
