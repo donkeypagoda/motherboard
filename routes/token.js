@@ -22,13 +22,13 @@ const auth = function(req, res, next) {
 
 // test route to go with test.js remove before deploy
 router.get('/token', auth, (req, res) => {
-  console.log("token");
-  console.log(req.cookies.token);
+  // console.log("token");
+  // console.log(req.cookies.token);
 })
 
 router.post('/token', (req, res, next) => {
-  console.log("token");
-  console.log(JSON.parse(req.body.data));
+  // console.log("token");
+  // console.log(JSON.parse(req.body.data));
   const data = JSON.parse(req.body.data)
   const { email, password } = data;
 
