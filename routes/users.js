@@ -10,12 +10,13 @@ const router = express.Router();
 
 router.get('/users', (req, res) => {
   console.log("users");
+  
 })
 
 router.post('/users', (req, res, next) => {
   console.log("user post");
   const data = JSON.parse(req.body.data)
-  const { email, password } = data;
+  const { username, email, password } = data;
 
   if (!email || !email.trim()) {
     return next(boom.create(400, 'Email must not be blank'));

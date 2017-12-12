@@ -25,8 +25,12 @@
     <div class="col">
       <span>
         <form>
-          <input type="email" ng-model="$ctrl.signIn.email" name="email">
-          <input type="password" ng-model="$ctrl.signIn.password" name="password">
+          <label>email
+            <input type="email" ng-model="$ctrl.signIn.email" name="email">
+          </label>
+          <label>password
+            <input type="password" ng-model="$ctrl.signIn.password" name="password">
+          </label>
           <button type="submit" ng-click="$ctrl.login($ctrl.signIn)">Login</button>
         </form>
       </span>
@@ -34,9 +38,15 @@
     <div class="col">
       <span>
         <form>
-          <input type="username" ng-model="$ctrl.signUp.username" name="username">
-          <input type="email" ng-model="$ctrl.signUp.email" name="email">
-          <input type="password" ng-model="$ctrl.signUp.password" name="password">
+          <label>username
+            <input type="username" ng-model="$ctrl.signUp.username" name="username">
+          </label>
+          <label>email
+            <input type="email" ng-model="$ctrl.signUp.email" name="email">
+          </label>
+          <label>password
+            <input type="password" ng-model="$ctrl.signUp.password" name="password">
+          </label>
           <button type="submit" ng-click="$ctrl.createAccount($ctrl.signUp)">Sign Up!</button>
         </form>
       </span>
