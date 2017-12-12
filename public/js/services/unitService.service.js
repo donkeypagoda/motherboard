@@ -14,7 +14,6 @@
     }
     vm.removeLast = function(){
       vm.currentUnits = vm.currentUnits.slice(0, vm.currentUnits.length - 1)
-      console.log(vm.currentUnits);
     }
   })
 

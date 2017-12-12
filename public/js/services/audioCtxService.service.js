@@ -22,11 +22,8 @@
 
       vm.removeLast = function(){
         vm.units = vm.units.slice(0, vm.units.length - 1)
-        console.log(vm.units);
         vm.buildSignalPath(vm.units);
       }
-
-
 
       vm.buildSignalPath = function(unitArray){
         vm.audioCtx.close()
