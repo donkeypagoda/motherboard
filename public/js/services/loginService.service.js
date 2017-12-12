@@ -26,7 +26,7 @@
           })
       }
 
-      this.signUp = function (signUp){
+      this.createAccount = function (signUp){
         console.log("attempt" + signUp);
         let email = signUp.email;
         let password = signUp.password;

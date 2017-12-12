@@ -18,9 +18,16 @@
 
       vm.login = function(signIn){
         vm.loginService.login(signIn)
-        .then (() =>{
-          delete vm.signIn;
-        })
+          .then (() =>{
+            delete vm.signIn;
+          })
+      }
+
+      vm.createAccount = function(signUp){
+        vm.loginService.createAccount(signUp)
+          .then (() => {
+            delete vm.signUp;
+          })
       }
 
       vm.removeLastAndRebuild = function(){

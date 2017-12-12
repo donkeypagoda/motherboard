@@ -9,12 +9,12 @@ const { camelizeKeys } = require('humps');
 const router = express.Router();
 
 const auth = function(req, res, next) {
-  jwt.verify(req.cookies.token, process.env.JWT_KEY, (err, playload) => {
+  jwt.verify(req.cookies.token, process.env.JWT_KEY, (err, payload) => {
     if (err) {
       return next(boom.create(401, 'Unauthorized'));
     }
 
-    req.claim = playload;
+    req.claim = payload;
 
     next();
   });
