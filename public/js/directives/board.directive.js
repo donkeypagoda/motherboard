@@ -15,7 +15,14 @@
       vm.units = unitService;
       vm.audioCtxService = audioCtxService;
       vm.loginService = loginService;
-      
+
+      vm.login = function(signIn){
+        vm.loginService.login(signIn)
+        .then (() =>{
+          delete vm.signIn;
+        })
+      }
+
       vm.removeLastAndRebuild = function(){
         vm.units.removeLast();
         vm.audioCtxService.removeLast();
