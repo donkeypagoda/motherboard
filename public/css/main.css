@@ -41,3 +41,37 @@ header {
 label {
   color: white;
 }
+
+/*header grid*/
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 2fr);
+  grid-gap: 10px;
+  /*grid-auto-rows: minmax(100px, auto);*/
+}
+.one {
+  grid-column: 3;
+  grid-row: 1;
+}
+.two {
+  grid-column: 3;
+  grid-row: 2;
+}
+.three {
+  grid-column: 8;
+  grid-row: 1;
+}
+.four {
+  grid-column: 10;
+  grid-row: 1;
+}
+/* pedal grid*/
+.innerWrap {
+  display: grid;
+  grid-template-columns: repeat(12, 2fr);
+  grid-gap: 5px;
+  /*grid-auto-rows: minmax(100px, auto);*/
+}
+.pedalButton {
+  grid-row: 1;
+}

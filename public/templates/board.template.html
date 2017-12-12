@@ -7,54 +7,63 @@
     <div class="col"></div>
   </div>
   <p> </p>
-  <div class="row">
-    <div class="col-2">
-      <p> </p>
-    </div>
-    <div class="col-md-auto">
-      <span class="standOut">Add A Pedal</span>
-      <span ng-repeat="unit in $ctrl.units.availableUnits">
-          <button ng-click="$ctrl.units.addToBoard(unit)">Add {{unit}}</button>
-      </span>
-    </div>
-    <div class="col">
-      <span>
-          <button ng-click="$ctrl.removeLastAndRebuild()">Remove Last Pedal</button>
-      </span>
-    </div>
-    <div class="col">
-      <span>
-        <form>
-          <label>email
-            <input type="email" ng-model="$ctrl.signIn.email" name="email">
-          </label>
-          <label>password
-            <input type="password" ng-model="$ctrl.signIn.password" name="password">
-          </label>
-          <button type="submit" ng-click="$ctrl.login($ctrl.signIn)">Login</button>
-        </form>
-      </span>
-    </div>
-    <div class="col">
-      <span>
-        <form>
-          <label>username
-            <input type="username" ng-model="$ctrl.signUp.username" name="username">
-          </label>
-          <label>email
-            <input type="email" ng-model="$ctrl.signUp.email" name="email">
-          </label>
-          <label>password
-            <input type="password" ng-model="$ctrl.signUp.password" name="password">
-          </label>
-          <button type="submit" ng-click="$ctrl.createAccount($ctrl.signUp)">Sign Up!</button>
-        </form>
-      </span>
-    </div>
+  <div class="wrapper">
+    <!-- <div class="row"> -->
+      <!-- <div class="col-2">
+        <p> </p>
+      </div> -->
+      <!-- <div class="col-md-auto"> -->
+      <div class="one">
+        <div class="innerWrap">
+          <span class="standOut">Add A Pedal</span>
+          <span ng-repeat="unit in $ctrl.units.availableUnits">
+              <button class="pedalButton" ng-click="$ctrl.units.addToBoard(unit)">Add {{unit}}</button>
+          </span>
+        </div>
+      </div>
+      <!-- <div class="col"> -->
+      <div class="two">
+        <span>
+            <button ng-click="$ctrl.removeLastAndRebuild()">Remove Last Pedal</button>
+        </span>
+      </div>
+      <!-- <div class="col"> -->
+      <div class="three">
+        <span>
+          <form>
+            <label>email
+              <input type="email" ng-model="$ctrl.signIn.email" name="email">
+            </label>
+            <label>password
+              <input type="password" ng-model="$ctrl.signIn.password" name="password">
+            </label>
+            <button type="submit" ng-click="$ctrl.login($ctrl.signIn)">Login</button>
+          </form>
+        </span>
+      </div>
+      <!-- <div class="col"> -->
+      <div class="four">
+        <span>
+          <form>
+            <label>username
+              <input type="username" ng-model="$ctrl.signUp.username" name="username">
+            </label>
+            <label>email
+              <input type="email" ng-model="$ctrl.signUp.email" name="email">
+            </label>
+            <label>password
+              <input type="password" ng-model="$ctrl.signUp.password" name="password">
+            </label>
+            <button type="submit" ng-click="$ctrl.createAccount($ctrl.signUp)">Sign Up!</button>
+          </form>
+        </span>
+      </div>
+    <!-- </div> -->
   </div>
-  <div class="row">
+  <!-- end grid wrpper for header -->
+  <!-- <div class="row">
     <p> </p>
-  </div>
+  </div> -->
 
 
 
