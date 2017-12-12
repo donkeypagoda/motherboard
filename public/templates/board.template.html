@@ -34,6 +34,7 @@
     <div class="col">
       <span>
         <form>
+          <input type="username" ng-model="$ctrl.signUp.username" name="username">
           <input type="email" ng-model="$ctrl.signUp.email" name="email">
           <input type="password" ng-model="$ctrl.signUp.password" name="password">
           <button type="submit" ng-click="$ctrl.createAccount($ctrl.signUp)">Sign Up!</button>

@@ -28,11 +28,10 @@
 
       this.createAccount = function (signUp){
         console.log("attempt" + signUp);
-        let email = signUp.email;
-        let password = signUp.password;
+        const { username, email, password} = signUp;
         const newUser = {
           contentType: 'application/json',
-          data: JSON.stringify({ email, password }),
+          data: JSON.stringify({ username, email, password }),
           dataType: 'json',
           type: 'POST',
           url: '/users',
