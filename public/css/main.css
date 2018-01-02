@@ -68,10 +68,15 @@ label {
 /* pedal grid*/
 .innerWrap {
   display: grid;
-  grid-template-columns: repeat(12, 2fr);
+  /* the number of colums must match the number of pedals plus the "add a pedal"*/
+  grid-template-columns: repeat(6, 2fr);
   grid-gap: 5px;
-  /*grid-auto-rows: minmax(100px, auto);*/
+  grid-auto-rows: minmax(100px, auto);
 }
 .pedalButton {
   grid-row: 1;
+}
+.removeBut {
+  grid-row: 2;
+  grid-column: 3;
 }
