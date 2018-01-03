@@ -7,6 +7,7 @@
 
     function service($http, $stateParams){
       const vm  = this;
+      this.loggedIn = false;
 
       this.login = function (signIn){
         console.log("attempt" + signIn);
@@ -22,6 +23,7 @@
         return $http.post("/token", userData)
           .then(function (response) {
             console.log(response);
+            this.loggedIn = true;
             return response.data
           })
       }
@@ -39,6 +41,7 @@
         return $http.post("/users", newUser)
           .then(function (response) {
             console.log(response);
+            this.loggedIn = true;
             return response.data
           })
       }
