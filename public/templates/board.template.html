@@ -23,7 +23,7 @@
       <!-- </div> -->
       <div class="three">
         <span>
-          <form>
+          <form ng-if="!$ctrl.loginService.loggedIn">
             <label>email
               <input type="email" ng-model="$ctrl.signIn.email" name="email">
             </label>
@@ -36,7 +36,7 @@
       </div>
       <div class="four">
         <span>
-          <form>
+          <form ng-if="!$ctrl.loginService.loggedIn">
             <label>username
               <input type="username" ng-model="$ctrl.signUp.username" name="username">
             </label>
@@ -51,7 +51,7 @@
         </span>
       </div>
       <div class="four">
-        <button type="submit" ng-click="$ctrl.logOut()">Log Out</button>
+        <button type="submit" ng-click="$ctrl.logOut()" ng-if="$ctrl.loginService.loggedIn">Log Out</button>
       </div>
   </div>
 </header>

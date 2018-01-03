@@ -30,11 +30,10 @@
           })
       }
       vm.logOut = function (){
-        vm.loginService.logOut(){
+        vm.loginService.logOut()
           .then(() => {
             vm.loginService.loggedIn = false;
           })
-        }
       }
 
       vm.removeLastAndRebuild = function(){
