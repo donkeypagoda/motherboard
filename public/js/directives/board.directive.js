@@ -29,6 +29,13 @@
             delete vm.signUp;
           })
       }
+      vm.logOut = function (){
+        vm.loginService.logOut(){
+          .then(() => {
+            vm.loginService.loggedIn = false;
+          })
+        }
+      }
 
       vm.removeLastAndRebuild = function(){
         vm.units.removeLast();

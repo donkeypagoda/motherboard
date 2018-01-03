@@ -46,7 +46,10 @@
           })
       }
 
-      this.logOut = function(){}
+      this.logOut = function(){
+        // this should delete the cookie/token etc.
+        // reseting the loggedIn variable will happen in the board directive
+      }
 
 
     }
