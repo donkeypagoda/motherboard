@@ -34,9 +34,9 @@
           </form>
         </span>
       </div>
-      <div class="four">
+      <div class="four" ng-if="!$ctrl.loginService.loggedIn">
         <span>
-          <form ng-if="!$ctrl.loginService.loggedIn">
+          <form>
             <label>username
               <input type="username" ng-model="$ctrl.signUp.username" name="username">
             </label>
@@ -50,8 +50,8 @@
           </form>
         </span>
       </div>
-      <div class="four">
-        <button type="submit" ng-click="$ctrl.logOut()" ng-if="$ctrl.loginService.loggedIn">Log Out</button>
+      <div class="four"  ng-if="$ctrl.loginService.loggedIn">
+        <button type="submit" ng-click="$ctrl.loginService.logOut()">Log Out</button>
       </div>
   </div>
 </header>

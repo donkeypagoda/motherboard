@@ -7,7 +7,7 @@
 
     function service($http, $stateParams){
       const vm  = this;
-      this.loggedIn = false;
+      vm.loggedIn = false;
 
       this.login = function (signIn){
         console.log("attempt" + signIn);
@@ -23,7 +23,7 @@
         return $http.post("/token", userData)
           .then(function (response) {
             console.log(response);
-            this.loggedIn = true;
+            vm.loggedIn = true;
             return response.data
           })
       }
@@ -41,12 +41,13 @@
         return $http.post("/users", newUser)
           .then(function (response) {
             console.log(response);
-            this.loggedIn = true;
+            vm.loggedIn = true;
             return response.data
           })
       }
 
       this.logOut = function(){
+        vm.loggedIn = false;
         // this should delete the cookie/token etc.
         // reseting the loggedIn variable will happen in the board directive
       }
