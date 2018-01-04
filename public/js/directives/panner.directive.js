@@ -15,7 +15,7 @@
 
       vm.plug = function(audioCtx, source){
         vm.panner = audioCtx.createStereoPanner();
-        vm.panner.pan.value = 0;
+        vm.panner.pan.value = 0.0;
         vm.pannerGain = audioCtx.createGain();
         vm.pannerGain.gain.value = 1.0;
         vm.pannerWidth = [-1, 1];
