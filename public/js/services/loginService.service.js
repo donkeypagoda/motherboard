@@ -47,7 +47,10 @@
       }
 
       this.logOut = function(){
-        vm.loggedIn = false;
+        $http.delete('/token')
+        .then(() => {
+          vm.loggedIn = false;
+        })
         // this should delete the cookie/token etc.
         // reseting the loggedIn variable will happen in the board directive
       }

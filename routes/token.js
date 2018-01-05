@@ -26,6 +26,11 @@ router.get('/token', auth, (req, res) => {
   // console.log(req.cookies.token);
 })
 
+router.delete('/token', (req, res) => {
+  res.clearCookie('token');
+  res.send({})  //this is the same
+});
+
 router.post('/token', (req, res, next) => {
   // console.log("token");
   // console.log(JSON.parse(req.body.data));
