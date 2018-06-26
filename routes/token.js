@@ -32,8 +32,6 @@ router.delete('/token', (req, res) => {
 });
 
 router.post('/token', (req, res, next) => {
-  // console.log("token");
-  // console.log(JSON.parse(req.body.data));
   const data = JSON.parse(req.body.data)
   const { email, password } = data;
 
