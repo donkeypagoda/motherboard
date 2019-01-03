@@ -2,7 +2,9 @@
 
 const express = require('express');
 const boom = require('boom');
-const bcrypt = require('bcrypt-as-promised');
+const bcrypt = require('bcrypt');
+//old code below
+// const bcrypt = require('bcrypt-as-promised');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const { camelizeKeys } = require('humps');

@@ -2,7 +2,9 @@
 
 const express = require('express');
 const boom = require('boom');
-const bcrypt = require('bcrypt-as-promised');
+const bcrypt = require('bcrypt');
+//old code below
+// const bcrypt = require('bcrypt-as-promised');
 const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
@@ -10,7 +12,7 @@ const router = express.Router();
 
 router.get('/users', (req, res) => {
   console.log("users");
-  
+
 })
 
 router.post('/users', (req, res, next) => {
