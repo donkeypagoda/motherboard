@@ -20,7 +20,7 @@
   "homepage": "https://github.com/donkeypagoda/motherboard#readme",
   "description": "",
   "dependencies": {
-    "bcrypt": "^3.0.3",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.2",
     "boom": "^7.3.0",
     "cookie-parser": "^1.4.3",
