@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "lite-server",
+    "start": "node server",
     "knex": "knex",
     "heroku-postbuild": "knex migrate:latest"
   },
@@ -20,7 +20,6 @@
   "homepage": "https://github.com/donkeypagoda/motherboard#readme",
   "description": "",
   "dependencies": {
-    "bcrypt": "^3.0.3",
     "body-parser": "^1.18.2",
     "boom": "^7.3.0",
     "cookie-parser": "^1.4.3",

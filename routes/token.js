@@ -2,7 +2,8 @@
 
 const express = require('express');
 const boom = require('boom');
-const bcrypt = require('bcrypt');
+// tearing out bcrypt
+// const bcrypt = require('bcrypt');
 //old code below
 // const bcrypt = require('bcrypt-as-promised');
 const jwt = require('jsonwebtoken');
@@ -56,8 +57,9 @@ knex('users')
     }
 
     user = camelizeKeys(row);
-
-    return bcrypt.compare(password, user.hashedPassword);
+    // tearing out bcrypt
+    // return bcrypt.compare(password, user.hashedPassword);
+    return console.log("tearing out bcrypt")
   })
   .then(() => {
     const claim = { userId: user.id };
@@ -75,9 +77,13 @@ knex('users')
 
     res.send(user);
   })
-  .catch(bcrypt.MISMATCH_ERROR, () => {
-    throw boom.create(400, 'Bad email or password');
+  .catch(() => {
+    console.log("tearing out bcrypt")
   })
+  // tearing out bcrypt
+  // .catch(bcrypt.MISMATCH_ERROR, () => {
+  //   throw boom.create(400, 'Bad email or password');
+  // })
   .catch((err) => {
     next(err);
   });

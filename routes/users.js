@@ -2,7 +2,8 @@
 
 const express = require('express');
 const boom = require('boom');
-const bcrypt = require('bcrypt');
+// tearing out bcrypt
+// const bcrypt = require('bcrypt');
 //old code below
 // const bcrypt = require('bcrypt-as-promised');
 const jwt = require('jsonwebtoken');
@@ -39,7 +40,9 @@ router.post('/users', (req, res, next) => {
     if (user) {
       throw boom.create(400, 'An account with that email already exists, please sign in')
     }
-    return bcrypt.hash(password, 12);
+    return console.log("login is broken, tearing out bcrypt")
+    // cutting out bcrypt
+    // return bcrypt.hash(password, 12);
   })
   .then((hashedPassword) => {
     const newUser = { username, email, hashedPassword };
