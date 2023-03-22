@@ -8,8 +8,6 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-
-
 const port = process.env.PORT || 5000;
 
 const app = express();
@@ -17,13 +15,6 @@ app.use(bodyParser.json());
 app.use(cookie());
 app.use(morgan('dev'))
 app.use(express.static(path.join("public")));
-
-// const users = require('./routes/users');
-// app.use(users);
-
-// const token = require('./routes/token');
-// app.use(token);
-
 
 app.use((req, res) => {
   res.sendStatus(404);
@@ -39,7 +30,7 @@ app.use((err, _req, res, _next) => {
       .send(err.message);
   }
 
-  console.error(err.stack);
+  // console.error(err.stack);
   res.sendStatus(500);
 });
 
