@@ -18,11 +18,11 @@ app.use(cookie());
 app.use(morgan('dev'))
 app.use(express.static(path.join("public")));
 
-const users = require('./routes/users');
-app.use(users);
+// const users = require('./routes/users');
+// app.use(users);
 
-const token = require('./routes/token');
-app.use(token);
+// const token = require('./routes/token');
+// app.use(token);
 
 
 app.use((req, res) => {
